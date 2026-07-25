@@ -1,530 +1,784 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduConnect</title>
-    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-map.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-data-adapter.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
-    <style type="text/css">      
-      html, body, #container { 
-        width: 100%; height: 100%; margin: 0; padding: 0; 
-      } 
-    </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.anychart.com/releases/8.11.1/geodata/countries/united_states_of_america/united_states_of_america.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduConnect</title>
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-map.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-data-adapter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
+  <style type="text/css">
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.anychart.com/releases/8.11.1/geodata/countries/united_states_of_america/united_states_of_america.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <nav style = "display: flex; flex-direction: row; justify-content: space-between; padding: 10px 50px; align-items: center;">
-        <h2>EduConnect</h2>
-        <span id="loginButton" style = "border-radius: 15px; border: 1px solid #2563eb; width: fit-content; height: 40px; display: inline-flex; flex-direction: row; justify-content: center; align-content: center; gap: 20px; align-items: center; padding: 20px">
-        <span class="material-symbols-outlined" style="display: inline-block;">
-            account_circle
-        </span>
-        <span style="display: inline;" id="loginDisplay">
-            Log In
-        </span>
-        </span>
-    </nav>
-    <main style="padding: 20px">
-        <span style="display: flex; flex-direction: row;">
-<div id="cost-map-container" style="display: inline-block; flex: 1; height: 500px; margin: 20px 0;"></div>
-<div id="ratio-map-container" style="display: inline-block; flex: 1;margin: 20px 0;"></div>
-        </span>
-        <span style="display: flex; flex-direction: row">
-        <div id="supplies-map-container" style="flex: 1%; height: 500px; margin-top: 30px;"></div>
-        <div id="supplies-ratio-map-container" style="flex: 1; height: 500px; margin-top: 30px;"></div>
-        </span>
-        <span style="display: flex; flex-direction: row; gap: 20px;">
-            <div style="display: inline-flex; flex-direction: column; border: 1px solid lightgray; border-radius: 5px; flex: 0.5; padding-bottom: 20px; padding-left: 20px; padding-right: 20px">
-                <h3>Approx. Cost Calculator:</h3>
-                <p>Calculate the <i>real</i> cost of education using our approximate cost calculator. Entered data will be used with respect to our dataset and put through rigorous equations to make a thorough prediction. All fields are optional.</p>
-                    <label for="state">US State (Optional)</label>
-<select id="state" name="state" class="form-control">
-    <option value="">-- Select a State --</option>
-    <optgroup label="Northeast">
-        <option value="Northeast">Connecticut</option>
-        <option value="Northeast">Maine</option>
-        <option value="Northeast">Massachusetts</option>
-        <option value="Northeast">New Hampshire</option>
-        <option value="Northeast">Rhode Island</option>
-        <option value="Northeast">Vermont</option>
-        <option value="Northeast">New Jersey</option>
-        <option value="Northeast">New York</option>
-        <option value="Northeast">Pennsylvania</option>
-    </optgroup>
-    <optgroup label="Midwest">
-        <option value="Midwest">Illinois</option>
-        <option value="Midwest">Indiana</option>
-        <option value="Midwest">Michigan</option>
-        <option value="Midwest">Ohio</option>
-        <option value="Midwest">Wisconsin</option>
-        <option value="Midwest">Iowa</option>
-        <option value="Midwest">Kansas</option>
-        <option value="Midwest">Minnesota</option>
-        <option value="Midwest">Missouri</option>
-        <option value="Midwest">Nebraska</option>
-        <option value="Midwest">North Dakota</option>
-        <option value="Midwest">South Dakota</option>
-    </optgroup>
-    <optgroup label="South">
-        <option value="Southeast">Delaware</option>
-        <option value="Southeast">Florida</option>
-        <option value="Southeast">Georgia</option>
-        <option value="Southeast">Maryland</option>
-        <option value="Southeast">North Carolina</option>
-        <option value="Southeast">South Carolina</option>
-        <option value="Southeast">Virginia</option>
-        <option value="Southeast">West Virginia</option>
-        <option value="Southeast">Alabama</option>
-        <option value="Southeast">Kentucky</option>
-        <option value="Southeast">Mississippi</option>
-        <option value="Southeast">Tennessee</option>
-        <option value="Southwest">Arkansas</option>
-        <option value="Southwest">Louisiana</option>
-        <option value="Southwest">Oklahoma</option>
-        <option value="Southwest">Texas</option>
-    </optgroup>
-    <optgroup label="West">
-        <option value="West">Arizona</option>
-        <option value="West">Colorado</option>
-        <option value="West">Idaho</option>
-        <option value="West">Montana</option>
-        <option value="West">Nevada</option>
-        <option value="West">New Mexico</option>
-        <option value="West">Utah</option>
-        <option value="West">Wyoming</option>
-        <option value="West">Alaska</option>
-        <option value="West">California</option>
-        <option value="West">Hawaii</option>
-        <option value="West">Oregon</option>
-        <option value="West">Washington</option>
-    </optgroup>
-</select>
+  <nav
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 25px;
+      align-items: center;
+    "
+  >
+    <h2>EduConnect</h2>
+    <span
+      id="loginButton"
+      style="
+        border-radius: 15px;
+        border: 1px solid #2563eb;
+        width: fit-content;
+        height: 40px;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        align-items: center;
+        padding: 20px;
+      "
+    >
+      <span class="material-symbols-outlined" style="display: inline-block">
+        account_circle
+      </span>
+      <span style="display: inline" id="loginDisplay"> Log In </span>
+    </span>
+  </nav>
+  <main style="padding: 20px">
+    <span style="display: flex; flex-direction: row">
+      <div
+        id="cost-map-container"
+        style="display: inline-block; flex: 1; height: 500px; margin: 20px 0"
+      ></div>
+      <div
+        id="ratio-map-container"
+        style="display: inline-block; flex: 1; margin: 20px 0"
+      ></div>
+    </span>
+    <span style="display: flex; flex-direction: row">
+      <div
+        id="supplies-map-container"
+        style="flex: 1%; height: 500px; margin-top: 30px"
+      ></div>
+      <div
+        id="supplies-ratio-map-container"
+        style="flex: 1; height: 500px; margin-top: 30px"
+      ></div>
+    </span>
+    <span style="display: flex; flex-direction: row; gap: 20px">
+      <div
+        style="
+          display: inline-flex;
+          flex-direction: column;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+          flex: 0.5;
+          padding-bottom: 20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        "
+      >
+        <h3>Approx. Cost Calculator:</h3>
+        <p>
+          Calculate the <i>real</i> cost of education using our approximate cost
+          calculator. Entered data will be used with respect to our dataset and
+          put through rigorous equations to make a thorough prediction. All
+          fields are optional.
+        </p>
+        <label for="state">US State (Optional)</label>
+        <select id="state" name="state" class="form-control">
+          <option value="">-- Select a State --</option>
+          <optgroup label="Northeast">
+            <option value="Northeast">Connecticut</option>
+            <option value="Northeast">Maine</option>
+            <option value="Northeast">Massachusetts</option>
+            <option value="Northeast">New Hampshire</option>
+            <option value="Northeast">Rhode Island</option>
+            <option value="Northeast">Vermont</option>
+            <option value="Northeast">New Jersey</option>
+            <option value="Northeast">New York</option>
+            <option value="Northeast">Pennsylvania</option>
+          </optgroup>
+          <optgroup label="Midwest">
+            <option value="Midwest">Illinois</option>
+            <option value="Midwest">Indiana</option>
+            <option value="Midwest">Michigan</option>
+            <option value="Midwest">Ohio</option>
+            <option value="Midwest">Wisconsin</option>
+            <option value="Midwest">Iowa</option>
+            <option value="Midwest">Kansas</option>
+            <option value="Midwest">Minnesota</option>
+            <option value="Midwest">Missouri</option>
+            <option value="Midwest">Nebraska</option>
+            <option value="Midwest">North Dakota</option>
+            <option value="Midwest">South Dakota</option>
+          </optgroup>
+          <optgroup label="South">
+            <option value="Southeast">Delaware</option>
+            <option value="Southeast">Florida</option>
+            <option value="Southeast">Georgia</option>
+            <option value="Southeast">Maryland</option>
+            <option value="Southeast">North Carolina</option>
+            <option value="Southeast">South Carolina</option>
+            <option value="Southeast">Virginia</option>
+            <option value="Southeast">West Virginia</option>
+            <option value="Southeast">Alabama</option>
+            <option value="Southeast">Kentucky</option>
+            <option value="Southeast">Mississippi</option>
+            <option value="Southeast">Tennessee</option>
+            <option value="Southwest">Arkansas</option>
+            <option value="Southwest">Louisiana</option>
+            <option value="Southwest">Oklahoma</option>
+            <option value="Southwest">Texas</option>
+          </optgroup>
+          <optgroup label="West">
+            <option value="West">Arizona</option>
+            <option value="West">Colorado</option>
+            <option value="West">Idaho</option>
+            <option value="West">Montana</option>
+            <option value="West">Nevada</option>
+            <option value="West">New Mexico</option>
+            <option value="West">Utah</option>
+            <option value="West">Wyoming</option>
+            <option value="West">Alaska</option>
+            <option value="West">California</option>
+            <option value="West">Hawaii</option>
+            <option value="West">Oregon</option>
+            <option value="West">Washington</option>
+          </optgroup>
+        </select>
 
-<div id="calculator-result" style="margin-top: 15px; font-weight: bold; color: #2563eb; font-size: 1.1rem;"></div>
-                <label for="Intended Major">Intended Major</label>
-                    <select id="intendedMajor" name="Intended Major" class="form-control">
-                        <option value="Physical Sciences" id="physicalSciences">Physical Sciences (Physics, Chemistry)</option>
-                        <option value="Life Sciences">Life Sciences (Biology, Physiology, Medicine)</option>
-                        <option value="Engineering">Engineering</option>
-                        <option value="Behavioral Science">Behavioral Science (Psychology, Sociology)</option>
-                        <option value="Math">Mathematics</option>
-                        <option value="Performing Arts">Performing Arts (Music, Theatre, Acting, Directing, Film)</option>
-                        <option value="Visual Arts">Visual Arts</option>
-                        <option value="Language">Language Studies</option>
-                        <option value="Social Studies">Social Studes (History, Anthropology)</option>
-                        <option value="Education">Education</option>
-                    </select>
-                <label for="Income Bracket">Income Bracket</label>
-                    <select id="incomeBracket" name="Income Bracket" class="form-control">
-                        <option value="Extreme Poverty">Extreme Poverty (<$2 per day)</option>
-                        <option value="Low Income">Low Income ($2.01-$10 per day)</option>
-                        <option value="Middle Income">Middle Income ($10.01-$20 per day)</option>
-                        <option value="Upper Middle Income">Upper Middle Income ($20.01-$50 per day)</option>
-                        <option value="High Income">High Income (>$50 per day)</option>
-                    </select>
-<div class="ec-dropdown-container">
-  <label for="ecSelect" class="form-label">Select Extracurricular Activities:</label>
-  
-  <select id="ecSelect" name="extracurriculars" class="form-control" multiple size="10" onchange="handleDropdownChange(this)">
-    <option value="ec_001">MIT THINK Scholars Program</option>
-    <option value="ec_002">Stockholm Junior Water Prize (SJWP)</option>
-    <option value="ec_003">iGEM High School Synthetic Biology Competition</option>
-    <option value="ec_005">High School Mathematical Contest in Modeling (HiMCM)</option>
-    <option value="ec_008">Conrad Challenge (Innovation & Entrepreneurship)</option>
-    <option value="ec_009">USA Computing Olympiad (USACO)</option>
-    <option value="ec_010">US Physics Olympiad (USAPhO / IPhO)</option>
-    <option value="ec_011">USA Biology Olympiad (USABO)</option>
-    <option value="ec_012">US National Chemistry Olympiad (USNCO)</option>
-    <option value="ec_013">Regeneron Science Talent Search (STS)</option>
-    <option value="ec_014">International Science and Engineering Fair (ISEF)</option>
-    <option value="ec_015">Congressional App Challenge</option>
-    <option value="ec_023">Genes in Space Contest</option>
-    <option value="ec_024">Toshiba/NSTA ExploraVision</option>
-    <option value="ec_025">FIRST Tech Challenge (FTC)</option>
-    <option value="ec_026">VEX Robotics Competition (VRC)</option>
-    <option value="ec_027">MAA AMC 10 / AMC 12 Math Competitions</option>
-    <option value="ec_028">European Girls' Mathematical Olympiad (EGMO)</option>
-    <option value="ec_029">Physics Unlimited Premier Competition</option>
-    <option value="ec_030">ClimateScience Olympiad</option>
-    <option value="ec_031">Technovation Girls</option>
-    <option value="ec_032">CyberPatriot National Youth Cyber Defense Competition</option>
-    <option value="ec_037">Junior Science and Humanities Symposium (JSHS)</option>
-    <option value="ec_038">American Rocketry Challenge (TARC)</option>
-    <option value="ec_039">National Brain Bee Competition</option>
-    <option value="ec_040">The Earth Prize</option>
-    <option value="ec_042">MIT PRIMES / PRIMES USA Research Program</option>
-    <option value="ec_050">World Robot Olympiad (WRO)</option>
+        <div
+          id="calculator-result"
+          style="
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 1.1rem;
+          "
+        ></div>
+        <label for="Intended Major">Intended Major</label>
+        <select id="intendedMajor" name="Intended Major" class="form-control">
+          <option value="Physical Sciences" id="physicalSciences">
+            Physical Sciences (Physics, Chemistry)
+          </option>
+          <option value="Life Sciences">
+            Life Sciences (Biology, Physiology, Medicine)
+          </option>
+          <option value="Engineering">Engineering</option>
+          <option value="Behavioral Science">
+            Behavioral Science (Psychology, Sociology)
+          </option>
+          <option value="Math">Mathematics</option>
+          <option value="Performing Arts">
+            Performing Arts (Music, Theatre, Acting, Directing, Film)
+          </option>
+          <option value="Visual Arts">Visual Arts</option>
+          <option value="Language">Language Studies</option>
+          <option value="Social Studies">
+            Social Studes (History, Anthropology)
+          </option>
+          <option value="Education">Education</option>
+        </select>
+        <label for="Income Bracket">Income Bracket</label>
+        <select id="incomeBracket" name="Income Bracket" class="form-control">
+          <option value="Extreme Poverty">Extreme Poverty (<$2 per day)</option>
+          <option value="Low Income">Low Income ($2.01-$10 per day)</option>
+          <option value="Middle Income">
+            Middle Income ($10.01-$20 per day)
+          </option>
+          <option value="Upper Middle Income">
+            Upper Middle Income ($20.01-$50 per day)
+          </option>
+          <option value="High Income">High Income (>$50 per day)</option>
+        </select>
+        <div class="ec-dropdown-container">
+          <label for="ecSelect" class="form-label"
+            >Select Extracurricular Activities:</label
+          >
 
-    <option value="ec_004">North American Computational Linguistics Open (NACLO / IOL)</option>
-    <option value="ec_017">National History Day (NHD) Contest</option>
-    <option value="ec_018">National High School Ethics Bowl (NHSEB)</option>
-    <option value="ec_019">World Schools Debating Championship (WSDC) Circuit</option>
-    <option value="ec_021">John Locke Institute Global Essay Competition</option>
-    <option value="ec_022">Harvard International Review Academic Writing Contest</option>
-    <option value="ec_036">Princeton University Poetry Contest for High School Students</option>
-    <option value="ec_041">Queen's Commonwealth Essay Competition</option>
-    <option value="ec_044">National History Academy</option>
-    <option value="ec_045">International Geography Olympiad (iGeo)</option>
-    <option value="ec_046">Telluride Association Summer Seminar (TASS)</option>
-    <option value="ec_048">AFSA High School Essay Contest</option>
+          <select
+            id="ecSelect"
+            name="extracurriculars"
+            class="form-control"
+            multiple
+            size="10"
+            onchange="handleDropdownChange(this)"
+          >
+            <option value="ec_001">MIT THINK Scholars Program</option>
+            <option value="ec_002">Stockholm Junior Water Prize (SJWP)</option>
+            <option value="ec_003">
+              iGEM High School Synthetic Biology Competition
+            </option>
+            <option value="ec_005">
+              High School Mathematical Contest in Modeling (HiMCM)
+            </option>
+            <option value="ec_008">
+              Conrad Challenge (Innovation & Entrepreneurship)
+            </option>
+            <option value="ec_009">USA Computing Olympiad (USACO)</option>
+            <option value="ec_010">US Physics Olympiad (USAPhO / IPhO)</option>
+            <option value="ec_011">USA Biology Olympiad (USABO)</option>
+            <option value="ec_012">
+              US National Chemistry Olympiad (USNCO)
+            </option>
+            <option value="ec_013">
+              Regeneron Science Talent Search (STS)
+            </option>
+            <option value="ec_014">
+              International Science and Engineering Fair (ISEF)
+            </option>
+            <option value="ec_015">Congressional App Challenge</option>
+            <option value="ec_023">Genes in Space Contest</option>
+            <option value="ec_024">Toshiba/NSTA ExploraVision</option>
+            <option value="ec_025">FIRST Tech Challenge (FTC)</option>
+            <option value="ec_026">VEX Robotics Competition (VRC)</option>
+            <option value="ec_027">
+              MAA AMC 10 / AMC 12 Math Competitions
+            </option>
+            <option value="ec_028">
+              European Girls' Mathematical Olympiad (EGMO)
+            </option>
+            <option value="ec_029">
+              Physics Unlimited Premier Competition
+            </option>
+            <option value="ec_030">ClimateScience Olympiad</option>
+            <option value="ec_031">Technovation Girls</option>
+            <option value="ec_032">
+              CyberPatriot National Youth Cyber Defense Competition
+            </option>
+            <option value="ec_037">
+              Junior Science and Humanities Symposium (JSHS)
+            </option>
+            <option value="ec_038">American Rocketry Challenge (TARC)</option>
+            <option value="ec_039">National Brain Bee Competition</option>
+            <option value="ec_040">The Earth Prize</option>
+            <option value="ec_042">
+              MIT PRIMES / PRIMES USA Research Program
+            </option>
+            <option value="ec_050">World Robot Olympiad (WRO)</option>
 
-    <option value="ec_006">Breakthrough Junior Challenge</option>
-    <option value="ec_007">Bow Seat Ocean Awareness Contest</option>
-    <option value="ec_016">Scholastic Art & Writing Awards</option>
-    <option value="ec_020">YoungArts Competition</option>
-    <option value="ec_047">Student World Impact Film Festival (SWIFF)</option>
-    <option value="ec_049">International Tchaikovsky Competition for Young Musicians</option>
+            <option value="ec_004">
+              North American Computational Linguistics Open (NACLO / IOL)
+            </option>
+            <option value="ec_017">National History Day (NHD) Contest</option>
+            <option value="ec_018">
+              National High School Ethics Bowl (NHSEB)
+            </option>
+            <option value="ec_019">
+              World Schools Debating Championship (WSDC) Circuit
+            </option>
+            <option value="ec_021">
+              John Locke Institute Global Essay Competition
+            </option>
+            <option value="ec_022">
+              Harvard International Review Academic Writing Contest
+            </option>
+            <option value="ec_036">
+              Princeton University Poetry Contest for High School Students
+            </option>
+            <option value="ec_041">
+              Queen's Commonwealth Essay Competition
+            </option>
+            <option value="ec_044">National History Academy</option>
+            <option value="ec_045">
+              International Geography Olympiad (iGeo)
+            </option>
+            <option value="ec_046">
+              Telluride Association Summer Seminar (TASS)
+            </option>
+            <option value="ec_048">AFSA High School Essay Contest</option>
 
-    <option value="ec_033">Blue Ocean High School Entrepreneurship Competition</option>
-    <option value="ec_034">Diamond Challenge for High School Entrepreneurs</option>
-    <option value="ec_035">Wharton Global Youth High School Investment Competition</option>
+            <option value="ec_006">Breakthrough Junior Challenge</option>
+            <option value="ec_007">Bow Seat Ocean Awareness Contest</option>
+            <option value="ec_016">Scholastic Art & Writing Awards</option>
+            <option value="ec_020">YoungArts Competition</option>
+            <option value="ec_047">
+              Student World Impact Film Festival (SWIFF)
+            </option>
+            <option value="ec_049">
+              International Tchaikovsky Competition for Young Musicians
+            </option>
 
-    <option value="ec_043">Davidson Fellows Scholarship Program</option>
-  </select>
-  <button id="calculate">Calculate</button>
-  </div>
-</div>
+            <option value="ec_033">
+              Blue Ocean High School Entrepreneurship Competition
+            </option>
+            <option value="ec_034">
+              Diamond Challenge for High School Entrepreneurs
+            </option>
+            <option value="ec_035">
+              Wharton Global Youth High School Investment Competition
+            </option>
 
-            </div>
-            <div style="display: inline-flex; flex-direction: column; border: 1px solid lightgray; border-radius: 5px; flex: 1; padding-bottom: 20px; padding-left: 20px; padding-right: 20px">
-                <h3>Optimized Opportunity Search</h3>
-                <p>Look for extracurriculars available within your region, major/field, income bracket, and experinece level. Results will be optimized and tailored towards your specific skillset. All fields are optional. </p>
-                <div id="oppResults"></div>
-                                    <label for="country">Country</label>    
-        <label for="country" id="country-opt">Country</label>    
-            <select id="country" name="country" class="form-control">
-                <option value="Afghanistan">Afghanistan</option>
-                <option value="Åland Islands">Åland Islands</option>
-                <option value="Albania">Albania</option>
-                <option value="Algeria">Algeria</option>
-                <option value="American Samoa">American Samoa</option>
-                <option value="Andorra">Andorra</option>
-                <option value="Angola">Angola</option>
-                <option value="Anguilla">Anguilla</option>
-                <option value="Antarctica">Antarctica</option>
-                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                <option value="Argentina">Argentina</option>
-                <option value="Armenia">Armenia</option>
-                <option value="Aruba">Aruba</option>
-                <option value="Australia">Australia</option>
-                <option value="Austria">Austria</option>
-                <option value="Azerbaijan">Azerbaijan</option>
-                <option value="Bahamas">Bahamas</option>
-                <option value="Bahrain">Bahrain</option>
-                <option value="Bangladesh">Bangladesh</option>
-                <option value="Barbados">Barbados</option>
-                <option value="Belarus">Belarus</option>
-                <option value="Belgium">Belgium</option>
-                <option value="Belize">Belize</option>
-                <option value="Benin">Benin</option>
-                <option value="Bermuda">Bermuda</option>
-                <option value="Bhutan">Bhutan</option>
-                <option value="Bolivia">Bolivia</option>
-                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                <option value="Botswana">Botswana</option>
-                <option value="Bouvet Island">Bouvet Island</option>
-                <option value="Brazil">Brazil</option>
-                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                <option value="Bulgaria">Bulgaria</option>
-                <option value="Burkina Faso">Burkina Faso</option>
-                <option value="Burundi">Burundi</option>
-                <option value="Cambodia">Cambodia</option>
-                <option value="Cameroon">Cameroon</option>
-                <option value="Canada">Canada</option>
-                <option value="Cape Verde">Cape Verde</option>
-                <option value="Cayman Islands">Cayman Islands</option>
-                <option value="Central African Republic">Central African Republic</option>
-                <option value="Chad">Chad</option>
-                <option value="Chile">Chile</option>
-                <option value="China">China</option>
-                <option value="Christmas Island">Christmas Island</option>
-                <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Comoros">Comoros</option>
-                <option value="Congo">Congo</option>
-                <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
-                <option value="Cook Islands">Cook Islands</option>
-                <option value="Costa Rica">Costa Rica</option>
-                <option value="Cote D'ivoire">Cote D'ivoire</option>
-                <option value="Croatia">Croatia</option>
-                <option value="Cuba">Cuba</option>
-                <option value="Cyprus">Cyprus</option>
-                <option value="Czech Republic">Czech Republic</option>
-                <option value="Denmark">Denmark</option>
-                <option value="Djibouti">Djibouti</option>
-                <option value="Dominica">Dominica</option>
-                <option value="Dominican Republic">Dominican Republic</option>
-                <option value="Ecuador">Ecuador</option>
-                <option value="Egypt">Egypt</option>
-                <option value="El Salvador">El Salvador</option>
-                <option value="Equatorial Guinea">Equatorial Guinea</option>
-                <option value="Eritrea">Eritrea</option>
-                <option value="Estonia">Estonia</option>
-                <option value="Ethiopia">Ethiopia</option>
-                <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
-                <option value="Faroe Islands">Faroe Islands</option>
-                <option value="Fiji">Fiji</option>
-                <option value="Finland">Finland</option>
-                <option value="France">France</option>
-                <option value="French Guiana">French Guiana</option>
-                <option value="French Polynesia">French Polynesia</option>
-                <option value="French Southern Territories">French Southern Territories</option>
-                <option value="Gabon">Gabon</option>
-                <option value="Gambia">Gambia</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Germany">Germany</option>
-                <option value="Ghana">Ghana</option>
-                <option value="Gibraltar">Gibraltar</option>
-                <option value="Greece">Greece</option>
-                <option value="Greenland">Greenland</option>
-                <option value="Grenada">Grenada</option>
-                <option value="Guadeloupe">Guadeloupe</option>
-                <option value="Guam">Guam</option>
-                <option value="Guatemala">Guatemala</option>
-                <option value="Guernsey">Guernsey</option>
-                <option value="Guinea">Guinea</option>
-                <option value="Guinea-bissau">Guinea-bissau</option>
-                <option value="Guyana">Guyana</option>
-                <option value="Haiti">Haiti</option>
-                <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
-                <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
-                <option value="Honduras">Honduras</option>
-                <option value="Hong Kong">Hong Kong</option>
-                <option value="Hungary">Hungary</option>
-                <option value="Iceland">Iceland</option>
-                <option value="India">India</option>
-                <option value="Indonesia">Indonesia</option>
-                <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
-                <option value="Iraq">Iraq</option>
-                <option value="Ireland">Ireland</option>
-                <option value="Isle of Man">Isle of Man</option>
-                <option value="Israel">Israel</option>
-                <option value="Italy">Italy</option>
-                <option value="Jamaica">Jamaica</option>
-                <option value="Japan">Japan</option>
-                <option value="Jersey">Jersey</option>
-                <option value="Jordan">Jordan</option>
-                <option value="Kazakhstan">Kazakhstan</option>
-                <option value="Kenya">Kenya</option>
-                <option value="Kiribati">Kiribati</option>
-                <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
-                <option value="Korea, Republic of">Korea, Republic of</option>
-                <option value="Kuwait">Kuwait</option>
-                <option value="Kyrgyzstan">Kyrgyzstan</option>
-                <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
-                <option value="Latvia">Latvia</option>
-                <option value="Lebanon">Lebanon</option>
-                <option value="Lesotho">Lesotho</option>
-                <option value="Liberia">Liberia</option>
-                <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
-                <option value="Liechtenstein">Liechtenstein</option>
-                <option value="Lithuania">Lithuania</option>
-                <option value="Luxembourg">Luxembourg</option>
-                <option value="Macao">Macao</option>
-                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
-                <option value="Madagascar">Madagascar</option>
-                <option value="Malawi">Malawi</option>
-                <option value="Malaysia">Malaysia</option>
-                <option value="Maldives">Maldives</option>
-                <option value="Mali">Mali</option>
-                <option value="Malta">Malta</option>
-                <option value="Marshall Islands">Marshall Islands</option>
-                <option value="Martinique">Martinique</option>
-                <option value="Mauritania">Mauritania</option>
-                <option value="Mauritius">Mauritius</option>
-                <option value="Mayotte">Mayotte</option>
-                <option value="Mexico">Mexico</option>
-                <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
-                <option value="Moldova, Republic of">Moldova, Republic of</option>
-                <option value="Monaco">Monaco</option>
-                <option value="Mongolia">Mongolia</option>
-                <option value="Montenegro">Montenegro</option>
-                <option value="Montserrat">Montserrat</option>
-                <option value="Morocco">Morocco</option>
-                <option value="Mozambique">Mozambique</option>
-                <option value="Myanmar">Myanmar</option>
-                <option value="Namibia">Namibia</option>
-                <option value="Nauru">Nauru</option>
-                <option value="Nepal">Nepal</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Netherlands Antilles">Netherlands Antilles</option>
-                <option value="New Caledonia">New Caledonia</option>
-                <option value="New Zealand">New Zealand</option>
-                <option value="Nicaragua">Nicaragua</option>
-                <option value="Niger">Niger</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="Niue">Niue</option>
-                <option value="Norfolk Island">Norfolk Island</option>
-                <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                <option value="Norway">Norway</option>
-                <option value="Oman">Oman</option>
-                <option value="Pakistan">Pakistan</option>
-                <option value="Palau">Palau</option>
-                <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
-                <option value="Panama">Panama</option>
-                <option value="Papua New Guinea">Papua New Guinea</option>
-                <option value="Paraguay">Paraguay</option>
-                <option value="Peru">Peru</option>
-                <option value="Philippines">Philippines</option>
-                <option value="Pitcairn">Pitcairn</option>
-                <option value="Poland">Poland</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Puerto Rico">Puerto Rico</option>
-                <option value="Qatar">Qatar</option>
-                <option value="Reunion">Reunion</option>
-                <option value="Romania">Romania</option>
-                <option value="Russian Federation">Russian Federation</option>
-                <option value="Rwanda">Rwanda</option>
-                <option value="Saint Helena">Saint Helena</option>
-                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                <option value="Saint Lucia">Saint Lucia</option>
-                <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-                <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
-                <option value="Samoa">Samoa</option>
-                <option value="San Marino">San Marino</option>
-                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Senegal">Senegal</option>
-                <option value="Serbia">Serbia</option>
-                <option value="Seychelles">Seychelles</option>
-                <option value="Sierra Leone">Sierra Leone</option>
-                <option value="Singapore">Singapore</option>
-                <option value="Slovakia">Slovakia</option>
-                <option value="Slovenia">Slovenia</option>
-                <option value="Solomon Islands">Solomon Islands</option>
-                <option value="Somalia">Somalia</option>
-                <option value="South Africa">South Africa</option>
-                <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
-                <option value="Spain">Spain</option>
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="Sudan">Sudan</option>
-                <option value="Suriname">Suriname</option>
-                <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-                <option value="Swaziland">Swaziland</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-                <option value="Taiwan">Taiwan</option>
-                <option value="Tajikistan">Tajikistan</option>
-                <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Timor-leste">Timor-leste</option>
-                <option value="Togo">Togo</option>
-                <option value="Tokelau">Tokelau</option>
-                <option value="Tonga">Tonga</option>
-                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                <option value="Tunisia">Tunisia</option>
-                <option value="Turkey">Turkey</option>
-                <option value="Turkmenistan">Turkmenistan</option>
-                <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                <option value="Tuvalu">Tuvalu</option>
-                <option value="Uganda">Uganda</option>
-                <option value="Ukraine">Ukraine</option>
-                <option value="United Arab Emirates">United Arab Emirates</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="United States">United States</option>
-                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
-                <option value="Uruguay">Uruguay</option>
-                <option value="Uzbekistan">Uzbekistan</option>
-                <option value="Vanuatu">Vanuatu</option>
-                <option value="Venezuela">Venezuela</option>
-                <option value="Viet Nam">Viet Nam</option>
-                <option value="Virgin Islands, British">Virgin Islands, British</option>
-                <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
-                <option value="Wallis and Futuna">Wallis and Futuna</option>
-                <option value="Western Sahara">Western Sahara</option>
-                <option value="Yemen">Yemen</option>
-                <option value="Zambia">Zambia</option>
-                <option value="Zimbabwe">Zimbabwe</option>
-            </select>
-
-<div id="calculator-result" style="margin-top: 15px; font-weight: bold; color: #2563eb; font-size: 1.1rem;"></div>
-                <label for="Intended Major">Intended Major</label>
-                    <select id="intendedMajor-opt" name="Intended Major" class="form-control">
-                        <option value="Physical Sciences" id="physicalSciences">Physical Sciences (Physics, Chemistry)</option>
-                        <option value="Life Sciences">Life Sciences (Biology, Physiology, Medicine)</option>
-                        <option value="Engineering">Engineering</option>
-                        <option value="Behavioral Science">Behavioral Science (Psychology, Sociology)</option>
-                        <option value="Math">Mathematics</option>
-                        <option value="Performing Arts">Performing Arts (Music, Theatre, Acting, Directing, Film)</option>
-                        <option value="Visual Arts">Visual Arts</option>
-                        <option value="Language">Language Studies</option>
-                        <option value="Social Studies">Social Studes (History, Anthropology)</option>
-                        <option value="Education">Education</option>
-                    </select>
-                <label id="income-opt" for="Income Bracket">Income Bracket</label>
-                    <select id="incomeBracket" name="Income Bracket" class="form-control">
-                        <option value="Extreme Poverty">Extreme Poverty (<$2 per day)</option>
-                        <option value="Low Income">Low Income ($2.01-$10 per day)</option>
-                        <option value="Middle Income">Middle Income ($10.01-$20 per day)</option>
-                        <option value="Upper Middle Income">Upper Middle Income ($20.01-$50 per day)</option>
-                        <option value="High Income">High Income (>$50 per day)</option>
-                    </select>
-                    <button id="searchOppsBtn">Search</button>
-            </div>
-        </span>
-        <div class="post-form-container">
-  <h3>Create a Bulletin Post</h3>
-  <form id="create-post-form">
-<input type="text" id="post-title" placeholder="Title" required />
-<textarea id="post-desc" placeholder="Description..." required></textarea>
-
-<input type="text" id="post-country" placeholder="Country (e.g., Canada)" />
-
-<input type="text" id="post-contact" placeholder="Contact Info (Optional: email, social tag, etc.)" />
-
-<select id="post-type" required>
-  <option value="Request">Request</option>
-  <option value="Offer">Offer</option>
-  <option value="Shared Experience">Shared Experience</option>
-</select>
-
-<button type="submit">Post to Bulletin</button>
-  </form>
-</div>
-
-<hr />
-
-<h3>Community Bulletin Board</h3>
-<div class="carousel-wrapper">
-  <button id="prevBtn">&lt;</button>
-  
-  <div id="carousel-card" class="card">
-    <p>Loading bulletin posts...</p>
-  </div>
-
-  <button id="nextBtn">&gt;</button>
-</div>
-        <div id="loginModal" style="display: none">
-  <h3>Create Account</h3>
-  <form id="signup-form">
-    <input type="email" id="signup-email" placeholder="Email" required>
-    <input type="text" id="signup-username" placeholder="Username" required>
-    <input type="password" id="signup-password" placeholder="Password" required>
-    <button type="submit">Sign Up</button>
-  </form>
-
-  <hr>
-
-  <!-- Sign In Form -->
-  <h3>Sign In</h3>
-  <form id="signin-form">
-    <input type="email" id="signin-email" placeholder="Email" required>
-    <input type="password" id="signin-password" placeholder="Password" required>
-    <button type="submit">Log In</button>
-  </form>
-
-  <p id="auth-message" style="color: red;"></p>
+            <option value="ec_043">Davidson Fellows Scholarship Program</option>
+          </select>
+          <button id="calculate">Calculate</button>
         </div>
-        <a href="https://forms.gle/5BoNrTy1qsRZsz5FA">Submit Information to Our Dataset (Anonymous)</a>
-        <div id="overlay" style="display: none"></div>
-    </main>
-<script src="script.js" type="module"></script>
+      </div>
+
+      <!-- </div> commented this out because it seemed extraneous-->
+
+      <div
+        style="
+          display: inline-flex;
+          flex-direction: column;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+          flex: 1;
+          padding-bottom: 20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        "
+      >
+        <h3>Optimized Opportunity Search</h3>
+        <p>
+          Look for extracurriculars available within your region, major/field,
+          income bracket, and experinece level. Results will be optimized and
+          tailored towards your specific skillset. All fields are optional.
+        </p>
+        <div id="oppResults"></div>
+        <label for="country">Country</label>
+        <label for="country" id="country-opt">Country</label>
+        <select id="country" name="country" class="form-control">
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Åland Islands">Åland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="American Samoa">American Samoa</option>
+          <option value="Andorra">Andorra</option>
+          <option value="Angola">Angola</option>
+          <option value="Anguilla">Anguilla</option>
+          <option value="Antarctica">Antarctica</option>
+          <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Armenia">Armenia</option>
+          <option value="Aruba">Aruba</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Azerbaijan">Azerbaijan</option>
+          <option value="Bahamas">Bahamas</option>
+          <option value="Bahrain">Bahrain</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Barbados">Barbados</option>
+          <option value="Belarus">Belarus</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Belize">Belize</option>
+          <option value="Benin">Benin</option>
+          <option value="Bermuda">Bermuda</option>
+          <option value="Bhutan">Bhutan</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+          <option value="Botswana">Botswana</option>
+          <option value="Bouvet Island">Bouvet Island</option>
+          <option value="Brazil">Brazil</option>
+          <option value="British Indian Ocean Territory">
+            British Indian Ocean Territory
+          </option>
+          <option value="Brunei Darussalam">Brunei Darussalam</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Burkina Faso">Burkina Faso</option>
+          <option value="Burundi">Burundi</option>
+          <option value="Cambodia">Cambodia</option>
+          <option value="Cameroon">Cameroon</option>
+          <option value="Canada">Canada</option>
+          <option value="Cape Verde">Cape Verde</option>
+          <option value="Cayman Islands">Cayman Islands</option>
+          <option value="Central African Republic">
+            Central African Republic
+          </option>
+          <option value="Chad">Chad</option>
+          <option value="Chile">Chile</option>
+          <option value="China">China</option>
+          <option value="Christmas Island">Christmas Island</option>
+          <option value="Cocos (Keeling) Islands">
+            Cocos (Keeling) Islands
+          </option>
+          <option value="Colombia">Colombia</option>
+          <option value="Comoros">Comoros</option>
+          <option value="Congo">Congo</option>
+          <option value="Congo, The Democratic Republic of The">
+            Congo, The Democratic Republic of The
+          </option>
+          <option value="Cook Islands">Cook Islands</option>
+          <option value="Costa Rica">Costa Rica</option>
+          <option value="Cote D'ivoire">Cote D'ivoire</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Cuba">Cuba</option>
+          <option value="Cyprus">Cyprus</option>
+          <option value="Czech Republic">Czech Republic</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Djibouti">Djibouti</option>
+          <option value="Dominica">Dominica</option>
+          <option value="Dominican Republic">Dominican Republic</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="Egypt">Egypt</option>
+          <option value="El Salvador">El Salvador</option>
+          <option value="Equatorial Guinea">Equatorial Guinea</option>
+          <option value="Eritrea">Eritrea</option>
+          <option value="Estonia">Estonia</option>
+          <option value="Ethiopia">Ethiopia</option>
+          <option value="Falkland Islands (Malvinas)">
+            Falkland Islands (Malvinas)
+          </option>
+          <option value="Faroe Islands">Faroe Islands</option>
+          <option value="Fiji">Fiji</option>
+          <option value="Finland">Finland</option>
+          <option value="France">France</option>
+          <option value="French Guiana">French Guiana</option>
+          <option value="French Polynesia">French Polynesia</option>
+          <option value="French Southern Territories">
+            French Southern Territories
+          </option>
+          <option value="Gabon">Gabon</option>
+          <option value="Gambia">Gambia</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Germany">Germany</option>
+          <option value="Ghana">Ghana</option>
+          <option value="Gibraltar">Gibraltar</option>
+          <option value="Greece">Greece</option>
+          <option value="Greenland">Greenland</option>
+          <option value="Grenada">Grenada</option>
+          <option value="Guadeloupe">Guadeloupe</option>
+          <option value="Guam">Guam</option>
+          <option value="Guatemala">Guatemala</option>
+          <option value="Guernsey">Guernsey</option>
+          <option value="Guinea">Guinea</option>
+          <option value="Guinea-bissau">Guinea-bissau</option>
+          <option value="Guyana">Guyana</option>
+          <option value="Haiti">Haiti</option>
+          <option value="Heard Island and Mcdonald Islands">
+            Heard Island and Mcdonald Islands
+          </option>
+          <option value="Holy See (Vatican City State)">
+            Holy See (Vatican City State)
+          </option>
+          <option value="Honduras">Honduras</option>
+          <option value="Hong Kong">Hong Kong</option>
+          <option value="Hungary">Hungary</option>
+          <option value="Iceland">Iceland</option>
+          <option value="India">India</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Iran, Islamic Republic of">
+            Iran, Islamic Republic of
+          </option>
+          <option value="Iraq">Iraq</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Isle of Man">Isle of Man</option>
+          <option value="Israel">Israel</option>
+          <option value="Italy">Italy</option>
+          <option value="Jamaica">Jamaica</option>
+          <option value="Japan">Japan</option>
+          <option value="Jersey">Jersey</option>
+          <option value="Jordan">Jordan</option>
+          <option value="Kazakhstan">Kazakhstan</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Kiribati">Kiribati</option>
+          <option value="Korea, Democratic People's Republic of">
+            Korea, Democratic People's Republic of
+          </option>
+          <option value="Korea, Republic of">Korea, Republic of</option>
+          <option value="Kuwait">Kuwait</option>
+          <option value="Kyrgyzstan">Kyrgyzstan</option>
+          <option value="Lao People's Democratic Republic">
+            Lao People's Democratic Republic
+          </option>
+          <option value="Latvia">Latvia</option>
+          <option value="Lebanon">Lebanon</option>
+          <option value="Lesotho">Lesotho</option>
+          <option value="Liberia">Liberia</option>
+          <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+          <option value="Liechtenstein">Liechtenstein</option>
+          <option value="Lithuania">Lithuania</option>
+          <option value="Luxembourg">Luxembourg</option>
+          <option value="Macao">Macao</option>
+          <option value="Macedonia, The Former Yugoslav Republic of">
+            Macedonia, The Former Yugoslav Republic of
+          </option>
+          <option value="Madagascar">Madagascar</option>
+          <option value="Malawi">Malawi</option>
+          <option value="Malaysia">Malaysia</option>
+          <option value="Maldives">Maldives</option>
+          <option value="Mali">Mali</option>
+          <option value="Malta">Malta</option>
+          <option value="Marshall Islands">Marshall Islands</option>
+          <option value="Martinique">Martinique</option>
+          <option value="Mauritania">Mauritania</option>
+          <option value="Mauritius">Mauritius</option>
+          <option value="Mayotte">Mayotte</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Micronesia, Federated States of">
+            Micronesia, Federated States of
+          </option>
+          <option value="Moldova, Republic of">Moldova, Republic of</option>
+          <option value="Monaco">Monaco</option>
+          <option value="Mongolia">Mongolia</option>
+          <option value="Montenegro">Montenegro</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Morocco">Morocco</option>
+          <option value="Mozambique">Mozambique</option>
+          <option value="Myanmar">Myanmar</option>
+          <option value="Namibia">Namibia</option>
+          <option value="Nauru">Nauru</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="Netherlands Antilles">Netherlands Antilles</option>
+          <option value="New Caledonia">New Caledonia</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Nicaragua">Nicaragua</option>
+          <option value="Niger">Niger</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="Niue">Niue</option>
+          <option value="Norfolk Island">Norfolk Island</option>
+          <option value="Northern Mariana Islands">
+            Northern Mariana Islands
+          </option>
+          <option value="Norway">Norway</option>
+          <option value="Oman">Oman</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Palau">Palau</option>
+          <option value="Palestinian Territory, Occupied">
+            Palestinian Territory, Occupied
+          </option>
+          <option value="Panama">Panama</option>
+          <option value="Papua New Guinea">Papua New Guinea</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Peru">Peru</option>
+          <option value="Philippines">Philippines</option>
+          <option value="Pitcairn">Pitcairn</option>
+          <option value="Poland">Poland</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Puerto Rico">Puerto Rico</option>
+          <option value="Qatar">Qatar</option>
+          <option value="Reunion">Reunion</option>
+          <option value="Romania">Romania</option>
+          <option value="Russian Federation">Russian Federation</option>
+          <option value="Rwanda">Rwanda</option>
+          <option value="Saint Helena">Saint Helena</option>
+          <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+          <option value="Saint Lucia">Saint Lucia</option>
+          <option value="Saint Pierre and Miquelon">
+            Saint Pierre and Miquelon
+          </option>
+          <option value="Saint Vincent and The Grenadines">
+            Saint Vincent and The Grenadines
+          </option>
+          <option value="Samoa">Samoa</option>
+          <option value="San Marino">San Marino</option>
+          <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+          <option value="Saudi Arabia">Saudi Arabia</option>
+          <option value="Senegal">Senegal</option>
+          <option value="Serbia">Serbia</option>
+          <option value="Seychelles">Seychelles</option>
+          <option value="Sierra Leone">Sierra Leone</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Slovakia">Slovakia</option>
+          <option value="Slovenia">Slovenia</option>
+          <option value="Solomon Islands">Solomon Islands</option>
+          <option value="Somalia">Somalia</option>
+          <option value="South Africa">South Africa</option>
+          <option value="South Georgia and The South Sandwich Islands">
+            South Georgia and The South Sandwich Islands
+          </option>
+          <option value="Spain">Spain</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+          <option value="Sudan">Sudan</option>
+          <option value="Suriname">Suriname</option>
+          <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+          <option value="Swaziland">Swaziland</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+          <option value="Taiwan">Taiwan</option>
+          <option value="Tajikistan">Tajikistan</option>
+          <option value="Tanzania, United Republic of">
+            Tanzania, United Republic of
+          </option>
+          <option value="Thailand">Thailand</option>
+          <option value="Timor-leste">Timor-leste</option>
+          <option value="Togo">Togo</option>
+          <option value="Tokelau">Tokelau</option>
+          <option value="Tonga">Tonga</option>
+          <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+          <option value="Tunisia">Tunisia</option>
+          <option value="Turkey">Turkey</option>
+          <option value="Turkmenistan">Turkmenistan</option>
+          <option value="Turks and Caicos Islands">
+            Turks and Caicos Islands
+          </option>
+          <option value="Tuvalu">Tuvalu</option>
+          <option value="Uganda">Uganda</option>
+          <option value="Ukraine">Ukraine</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States">United States</option>
+          <option value="United States Minor Outlying Islands">
+            United States Minor Outlying Islands
+          </option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="Uzbekistan">Uzbekistan</option>
+          <option value="Vanuatu">Vanuatu</option>
+          <option value="Venezuela">Venezuela</option>
+          <option value="Viet Nam">Viet Nam</option>
+          <option value="Virgin Islands, British">
+            Virgin Islands, British
+          </option>
+          <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+          <option value="Wallis and Futuna">Wallis and Futuna</option>
+          <option value="Western Sahara">Western Sahara</option>
+          <option value="Yemen">Yemen</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+
+        <div
+          id="calculator-result"
+          style="
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 1.1rem;
+          "
+        ></div>
+        <label for="Intended Major">Intended Major</label>
+        <select
+          id="intendedMajor-opt"
+          name="Intended Major"
+          class="form-control"
+        >
+          <option value="Physical Sciences" id="physicalSciences">
+            Physical Sciences (Physics, Chemistry)
+          </option>
+          <option value="Life Sciences">
+            Life Sciences (Biology, Physiology, Medicine)
+          </option>
+          <option value="Engineering">Engineering</option>
+          <option value="Behavioral Science">
+            Behavioral Science (Psychology, Sociology)
+          </option>
+          <option value="Math">Mathematics</option>
+          <option value="Performing Arts">
+            Performing Arts (Music, Theatre, Acting, Directing, Film)
+          </option>
+          <option value="Visual Arts">Visual Arts</option>
+          <option value="Language">Language Studies</option>
+          <option value="Social Studies">
+            Social Studes (History, Anthropology)
+          </option>
+          <option value="Education">Education</option>
+        </select>
+        <label id="income-opt" for="Income Bracket">Income Bracket</label>
+        <select id="incomeBracket" name="Income Bracket" class="form-control">
+          <option value="Extreme Poverty">Extreme Poverty (<$2 per day)</option>
+          <option value="Low Income">Low Income ($2.01-$10 per day)</option>
+          <option value="Middle Income">
+            Middle Income ($10.01-$20 per day)
+          </option>
+          <option value="Upper Middle Income">
+            Upper Middle Income ($20.01-$50 per day)
+          </option>
+          <option value="High Income">High Income (>$50 per day)</option>
+        </select>
+        <button id="searchOppsBtn">Search</button>
+      </div>
+    </span>
+    <div class="post-form-container">
+      <h3>Create a Bulletin Post</h3>
+      <form id="create-post-form">
+        <input type="text" id="post-title" placeholder="Title" required />
+        <textarea
+          id="post-desc"
+          placeholder="Description..."
+          required
+        ></textarea>
+
+        <input
+          type="text"
+          id="post-country"
+          placeholder="Country (e.g., Canada)"
+        />
+
+        <input
+          type="text"
+          id="post-contact"
+          placeholder="Contact Info (Optional: email, social tag, etc.)"
+        />
+
+        <select id="post-type" required>
+          <option value="Request">Request</option>
+          <option value="Offer">Offer</option>
+          <option value="Shared Experience">Shared Experience</option>
+        </select>
+
+        <button type="submit">Post to Bulletin</button>
+      </form>
+    </div>
+
+    <hr />
+
+    <h3>Community Bulletin Board</h3>
+    <div class="carousel-wrapper">
+      <button id="prevBtn">&lt;</button>
+
+      <div id="carousel-card" class="card">
+        <p>Loading bulletin posts...</p>
+      </div>
+
+      <button id="nextBtn">&gt;</button>
+    </div>
+    <div id="loginModal" style="display: none">
+      <h3>Create Account</h3>
+      <form id="signup-form">
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input
+          type="text"
+          id="signup-username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <hr />
+
+      <!-- Sign In Form -->
+      <h3>Sign In</h3>
+      <form id="signin-form">
+        <input type="email" id="signin-email" placeholder="Email" required />
+        <input
+          type="password"
+          id="signin-password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Log In</button>
+      </form>
+
+      <p id="auth-message" style="color: red"></p>
+    </div>
+    <a href="https://forms.gle/5BoNrTy1qsRZsz5FA"
+      >Submit Information to Our Dataset (Anonymous)</a
+    >
+    <div id="overlay" style="display: none"></div>
+  </main>
+  <script src="script.js" type="module"></script>
 </body>
