@@ -541,7 +541,7 @@ function renderSuppliesMap(profilesData) {
     const series = map.choropleth(anychart.data.set(mapData));
 
     series.colorScale(
-      anychart.scales.linearColor("#ccfbf1", "#14b8a6", "#0f766e", "#134e4a")
+      anychart.scales.linearColor("#ffffff", "#14b8a6", "#91cfca", "#002523")
     );
 
     series.tooltip().format(function () {
