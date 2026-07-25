@@ -294,6 +294,8 @@ fetch("profiles.json")
   .then(data => {
     renderCostMap(data.profiles);
     renderRatioMap(data.profiles)
+    renderSuppliesMap(data.profiles)
+    renderBasicToAdvancedRatioMap(data.profiles)
   })
   .catch(err => console.error("Error loading profiles JSON:", err));
 document.getElementById("calculate")?.addEventListener("click", async () => {
@@ -495,6 +497,134 @@ function renderCostMap(profilesData) {
     series.selected().fill("#0284c7");
 
     map.container("cost-map-container");
+    map.draw();
+  });
+}
+function renderSuppliesMap(profilesData) {
+  const regionTotals = {};
+
+  profilesData.forEach(profile => {
+    const region = profile.geographic_location?.region;
+    const supplyCost = profile.costs?.basic_school_supplies || 0;
+    if (!region) return;
+
+    if (!regionTotals[region]) {
+      regionTotals[region] = { sum: 0, count: 0 };
+    }
+    regionTotals[region].sum += supplyCost;
+    regionTotals[region].count += 1;
+  });
+
+  const regionAverages = {};
+  for (const [region, data] of Object.entries(regionTotals)) {
+    regionAverages[region] = Math.round(data.sum / data.count);
+  }
+
+  const mapData = [];
+  for (const [region, states] of Object.entries(regionStateMap)) {
+    const avgSupplyCost = regionAverages[region] || 0;
+    
+    states.forEach(stateId => {
+      mapData.push({
+        id: stateId,
+        value: avgSupplyCost,
+        regionName: region
+      });
+    });
+  }
+
+  anychart.onDocumentReady(function () {
+    const map = anychart.map();
+    map.geoData("anychart.maps.united_states_of_america");
+    map.title("Average Basic School Supply Costs by Region ($ USD)");
+
+    const series = map.choropleth(anychart.data.set(mapData));
+
+    series.colorScale(
+      anychart.scales.linearColor("#ccfbf1", "#14b8a6", "#0f766e", "#134e4a")
+    );
+
+    series.tooltip().format(function () {
+      return `Region: ${this.getData("regionName")}\nAvg Supply Cost: $${this.value.toLocaleString()}`;
+    });
+
+    series.hovered().fill("#f59e0b");
+    series.selected().fill("#d97706");
+
+    map.container("supplies-map-container");
+    map.draw();
+  });
+}
+function renderBasicToAdvancedRatioMap(profilesData) {
+  const regionData = {};
+
+  profilesData.forEach(profile => {
+    const region = profile.geographic_location?.region;
+    const supplies = profile.costs?.basic_school_supplies || 0;
+    const ecCost = profile.costs?.extrapolated_ec_cost || 0;
+    
+    if (!region) return;
+
+    if (!regionData[region]) {
+      regionData[region] = { supplySum: 0, ecSum: 0, count: 0 };
+    }
+
+    regionData[region].supplySum += supplies;
+    regionData[region].ecSum += ecCost;
+    regionData[region].count += 1;
+  });
+
+  const regionRatios = {};
+  for (const [region, data] of Object.entries(regionData)) {
+    const avgSupplies = data.supplySum / data.count;
+    const avgEcCost = data.ecSum / data.count;
+    
+    const ratio = avgEcCost > 0 ? (avgSupplies / avgEcCost) * 100 : 0;
+
+    regionRatios[region] = {
+      avgSupplies: Math.round(avgSupplies),
+      avgEcCost: Math.round(avgEcCost),
+    };
+  }
+
+  const mapData = [];
+  for (const [region, states] of Object.entries(regionStateMap)) {
+    const info = regionRatios[region] || { ratio: 0, avgSupplies: 0, avgEcCost: 0 };
+    
+    states.forEach(stateId => {
+      info.ratio = (info.avgSupplies / info.avgEcCost)
+      mapData.push({
+        id: stateId,
+        value: info.ratio,
+        regionName: region,
+        avgSupplies: info.avgSupplies,
+        avgEcCost: info.avgEcCost
+      });
+    });
+  }
+
+  anychart.onDocumentReady(function () {
+    const map = anychart.map();
+    map.geoData("anychart.maps.united_states_of_america");
+    map.title("Basic School Costs as a % of Extracurricular/Advanced Costs");
+
+    const series = map.choropleth(anychart.data.set(mapData));
+
+    series.colorScale(
+      anychart.scales.linearColor("#ede9fe", "#8b5cf6", "#6d28d9", "#4c1d95")
+    );
+
+    series.tooltip().format(function () {
+      return `Region: ${this.getData("regionName")}\n` +
+             `Basic vs Advanced: ${this.value}%\n` +
+             `Avg Basic Supplies: $${this.getData("avgSupplies").toLocaleString()}\n` +
+             `Avg Advanced/EC Cost: $${this.getData("avgEcCost").toLocaleString()}`;
+    });
+
+    series.hovered().fill("#f59e0b");
+    series.selected().fill("#d97706");
+
+    map.container("supplies-ratio-map-container");
     map.draw();
   });
 }
