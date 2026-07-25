@@ -1,6 +1,7 @@
 const SUPABASE_URL = "https://yzbqqduvdvhsownpubyt.supabase.co"
 const SUPABASE_ANON_KEY = 'sb_publishable_-JiqDfRgnVn_YgEjUjprqQ_s4XG375D';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let baseCost  = 1500
 document.addEventListener("DOMContentLoaded", async () => {
   const { data: { session } } = await supabase.auth.getSession();
   const userEmailEl = document.getElementById("user-email");

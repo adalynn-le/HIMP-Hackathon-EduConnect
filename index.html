@@ -35,7 +35,17 @@
       align-items: center;
     "
   >
-    <h2>EduConnect</h2>
+      <span style="display: inline-flex; flex-direction: row; gap: 20px; padding: 0px; text-align: bottom; align-content: center; align-items: center;">
+    <a href="#maps">Maps</a>
+    <hr style="transform: rotate(90); width: 1px; height: 25px; border: none;   background-color: #dddbe4; ">
+    <a href="#calculator">Cost Calculator</a>
+     <hr style="transform: rotate(90); width: 1px; height: 25px; border: none;   background-color: #dddbe4; ">
+    <a href="#opportunityFinder">Opportunity Finder</a>
+     <hr style="transform: rotate(90); width: 1px; height: 25px; border: none;   background-color: #dddbe4; ">
+    <a href="#bulletinBoard">Bulletin Board</a>
+    </span>
+    <h2 style="position: absolute; left: 50%; transform: translateX(-50%)">EduConnect</h2>
+
     <span
       id="loginButton"
       style="
@@ -60,7 +70,7 @@
   </nav>
   <main style="padding: 20px">
     <!-- <h3 id="section-1">Summarized Data</h3> -->
-    <span style="display: flex; flex-direction: row">
+    <span id="maps" style="display: flex; flex-direction: row">
       <div
         id="cost-map-container"
         style="display: inline-block; flex: 1; height: 500px; margin: 20px 0"
@@ -94,13 +104,22 @@
           padding-right: 20px;
         "
       >
-        <h3>Approx. Cost Calculator:</h3>
+        <h3 id="calculator">Approx. Cost Calculator:</h3>
         <p>
           Calculate the <i>real</i> cost of education using our approximate cost
           calculator. Entered data will be used with respect to our dataset and
           put through rigorous equations to make a thorough prediction. All
           fields are optional.
         </p>
+                <div
+          id="calculator-result"
+          style="
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 1.1rem;
+          "
+        ></div>
         <label for="state">US State (Optional)</label>
         <select id="state" name="state" class="form-control">
           <option value="">-- Select a State --</option>
@@ -164,15 +183,7 @@
           </optgroup>
         </select>
 
-        <div
-          id="calculator-result"
-          style="
-            margin-top: 15px;
-            font-weight: bold;
-            color: #2563eb;
-            font-size: 1.1rem;
-          "
-        ></div>
+
         <label for="Intended Major">Intended Major</label>
         <select id="intendedMajor" name="Intended Major" class="form-control">
           <option value="Physical Sciences" id="physicalSciences">
@@ -210,7 +221,7 @@
         </select>
         <div class="ec-dropdown-container">
           <label for="ecSelect" class="form-label"
-            >Select Extracurricular Activities:</label
+            >Select Extracurricular Activities: (hold ctrl for multiple)</label
           >
 
           <select
@@ -219,7 +230,6 @@
             class="form-control"
             multiple
             size="10"
-            onchange="handleDropdownChange(this)"
           >
             <option value="ec_001">MIT THINK Scholars Program</option>
             <option value="ec_002">Stockholm Junior Water Prize (SJWP)</option>
@@ -346,7 +356,7 @@
           padding-right: 20px;
         "
       >
-        <h3>Optimized Opportunity Search</h3>
+        <h3 id="opportunityFinder">Optimized Opportunity Search</h3>
         <p>
           Look for extracurriculars available within your region, major/field,
           income bracket, and experinece level. Results will be optimized and
@@ -697,6 +707,16 @@
         <button id="searchOppsBtn">Search</button>
       </div>
     </span>
+        <h3 id="bulletinBoard">Community Bulletin Board</h3>
+    <div class="carousel-wrapper">
+      <button id="prevBtn">&lt;</button>
+
+      <div id="carousel-card" class="card">
+        <p>Loading bulletin posts...</p>
+      </div>
+
+      <button id="nextBtn">&gt;</button>
+    </div>
     <div class="post-form-container">
       <h3>Create a Bulletin Post</h3>
       <form id="create-post-form">
@@ -728,19 +748,12 @@
         <button type="submit">Post to Bulletin</button>
       </form>
     </div>
-
+    <a href="https://forms.gle/5BoNrTy1qsRZsz5FA"
+      >Submit Information to Our Dataset (Anonymous)</a
+    >
     <hr />
 
-    <h3>Community Bulletin Board</h3>
-    <div class="carousel-wrapper">
-      <button id="prevBtn">&lt;</button>
 
-      <div id="carousel-card" class="card">
-        <p>Loading bulletin posts...</p>
-      </div>
-
-      <button id="nextBtn">&gt;</button>
-    </div>
     <div id="loginModal" style="display: none">
       <h3>Create Account</h3>
       <form id="signup-form">
@@ -777,9 +790,7 @@
 
       <p id="auth-message" style="color: red"></p>
     </div>
-    <a href="https://forms.gle/5BoNrTy1qsRZsz5FA"
-      >Submit Information to Our Dataset (Anonymous)</a
-    >
+
     <div id="overlay" style="display: none"></div>
   </main>
   <footer style="text-align: center">
