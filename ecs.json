@@ -1,0 +1,854 @@
+{
+  "extracurriculars": [
+    {
+      "id": "ec_001",
+      "name": "MIT THINK Scholars Program",
+      "category": "STEM",
+      "major_alignment": ["Engineering", "Physical Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 20,
+        "high_end_usd": 150,
+        "cost_factors": ["Initial research supplies before grant reimbursement"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "National (US)",
+      "url": "https://think.mit.edu/",
+      "tags": ["engineering", "physics", "mit", "grant", "innovation"]
+    },
+    {
+      "id": "ec_002",
+      "name": "Stockholm Junior Water Prize (SJWP)",
+      "category": "STEM",
+      "major_alignment": ["Life Sciences", "Physical Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 50,
+        "high_end_usd": 300,
+        "cost_factors": ["Lab testing materials", "Poster board printing"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "Global",
+      "url": "https://www.wef.org/membership--community/students--young-professionals/sjwp/",
+      "tags": ["water", "environment", "biology", "research", "international"]
+    },
+    {
+      "id": "ec_003",
+      "name": "iGEM High School Synthetic Biology Competition",
+      "category": "STEM",
+      "major_alignment": ["Life Sciences", "Engineering"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 500,
+        "average_usd": 2000,
+        "high_end_usd": 6500,
+        "cost_factors": ["Team registration fee", "DNA synthesis & lab reagents", "Jamboree travel"]
+      },
+      "time_commitment_hrs_per_week": 15,
+      "geographic_dependency": "Global",
+      "url": "https://competition.igem.org/",
+      "tags": ["synthetic biology", "genetics", "lab work", "igem"]
+    },
+    {
+      "id": "ec_004",
+      "name": "North American Computational Linguistics Open (NACLO / IOL)",
+      "category": "Humanities",
+      "major_alignment": ["Language", "Math", "Behavioral Science"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 50,
+        "cost_factors": ["Testing site transportation"]
+      },
+      "time_commitment_hrs_per_week": 5,
+      "geographic_dependency": "Global",
+      "url": "https://www.nacloweb.org/",
+      "tags": ["linguistics", "puzzles", "logic", "languages", "decryption"]
+    },
+    {
+      "id": "ec_005",
+      "name": "High School Mathematical Contest in Modeling (HiMCM)",
+      "category": "STEM",
+      "major_alignment": ["Math", "Social Studies"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 100,
+        "average_usd": 100,
+        "high_end_usd": 100,
+        "cost_factors": ["Per-team contest registration fee ($100 split among 4)"]
+      },
+      "time_commitment_hrs_per_week": 12,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://www.comap.com/contests/himcm-midcm",
+      "tags": ["applied math", "data analysis", "python", "modeling"]
+    },
+    {
+      "id": "ec_006",
+      "name": "Breakthrough Junior Challenge",
+      "category": "Arts & STEM",
+      "major_alignment": ["Performing Arts", "Education", "Physical Sciences", "Life Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 25,
+        "high_end_usd": 200,
+        "cost_factors": ["Video editing software or animation props"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://breakthroughjuniorchallenge.org/",
+      "tags": ["filmmaking", "science communication", "animation", "video"]
+    },
+    {
+      "id": "ec_007",
+      "name": "Bow Seat Ocean Awareness Contest",
+      "category": "Arts",
+      "major_alignment": ["Visual Arts", "Performing Arts", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 30,
+        "high_end_usd": 150,
+        "cost_factors": ["Art supplies, film software, or recording instruments"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://bowseat.org/programs/ocean-awareness-contest/",
+      "tags": ["ocean", "art", "climate change", "poetry", "multimedia"]
+    },
+    {
+      "id": "ec_008",
+      "name": "Conrad Challenge (Innovation & Entrepreneurship)",
+      "category": "STEM & Business",
+      "major_alignment": ["Engineering", "Behavioral Science"],
+      "cost_tier": "Medium",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 150,
+        "high_end_usd": 1200,
+        "cost_factors": ["Innovation summit registration", "Prototyping materials", "Travel"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "Global",
+      "url": "https://www.conradchallenge.org/",
+      "tags": ["entrepreneurship", "aerospace", "health tech", "prototyping"]
+    },
+    {
+      "id": "ec_009",
+      "name": "USA Computing Olympiad (USACO)",
+      "category": "STEM",
+      "major_alignment": ["Math", "Engineering"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 300,
+        "cost_factors": ["Optional algorithms books or preparation platforms"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "Global / Remote",
+      "url": "http://www.usaco.org/",
+      "tags": ["algorithms", "c++", "competitive programming", "computer science"]
+    },
+    {
+      "id": "ec_010",
+      "name": "US Physics Olympiad (USAPhO / IPhO)",
+      "category": "STEM",
+      "major_alignment": ["Physical Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 15,
+        "high_end_usd": 100,
+        "cost_factors": ["F=ma exam registration fee (paid via school)"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "National / Global",
+      "url": "https://www.aapt.org/physicsteam/",
+      "tags": ["physics", "mechanics", "electromagnetism", "olympiad"]
+    },
+    {
+      "id": "ec_011",
+      "name": "USA Biology Olympiad (USABO)",
+      "category": "STEM",
+      "major_alignment": ["Life Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 20,
+        "high_end_usd": 150,
+        "cost_factors": ["Registration fees & textbook reference manuals (Campbell Biology)"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "National / Global",
+      "url": "https://www.usabo-trc.org/",
+      "tags": ["biology", "genetics", "biochemistry", "olympiad"]
+    },
+    {
+      "id": "ec_012",
+      "name": "US National Chemistry Olympiad (USNCO)",
+      "category": "STEM",
+      "major_alignment": ["Physical Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 10,
+        "high_end_usd": 100,
+        "cost_factors": ["Exam fees"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "National / Global",
+      "url": "https://www.acs.org/education/students/highschool/olympiad.html",
+      "tags": ["chemistry", "organic chemistry", "thermodynamics", "olympiad"]
+    },
+    {
+      "id": "ec_013",
+      "name": "Regeneron Science Talent Search (STS)",
+      "category": "STEM",
+      "major_alignment": ["Physical Sciences", "Life Sciences", "Behavioral Science", "Math"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 100,
+        "high_end_usd": 800,
+        "cost_factors": ["Independent research lab access / compute resources"]
+      },
+      "time_commitment_hrs_per_week": 15,
+      "geographic_dependency": "National (US)",
+      "url": "https://www.societyforscience.org/regeneron-sts/",
+      "tags": ["research paper", "stem award", "science competition", "scholars"]
+    },
+    {
+      "id": "ec_014",
+      "name": "International Science and Engineering Fair (ISEF)",
+      "category": "STEM",
+      "major_alignment": ["Engineering", "Physical Sciences", "Life Sciences"],
+      "cost_tier": "Variable",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 150,
+        "high_end_usd": 1500,
+        "cost_factors": ["Regional fair entries, project board, prototype components"]
+      },
+      "time_commitment_hrs_per_week": 15,
+      "geographic_dependency": "Global",
+      "url": "https://www.societyforscience.org/isef/",
+      "tags": ["isef", "science fair", "engineering prototype", "research"]
+    },
+    {
+      "id": "ec_015",
+      "name": "Congressional App Challenge",
+      "category": "STEM",
+      "major_alignment": ["Engineering", "Education"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 50,
+        "cost_factors": ["App store developer accounts (optional)"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "National (US District level)",
+      "url": "https://www.congressionalappchallenge.us/",
+      "tags": ["coding", "app development", "mobile", "congressional"]
+    },
+    {
+      "id": "ec_016",
+      "name": "Scholastic Art & Writing Awards",
+      "category": "Arts & Humanities",
+      "major_alignment": ["Visual Arts", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 10,
+        "average_usd": 25,
+        "high_end_usd": 100,
+        "cost_factors": ["Entry fee per individual work ($10) / portfolio ($30)"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "National (US/Canada)",
+      "url": "https://www.artandwriting.org/",
+      "tags": ["writing", "painting", "sculpture", "poetry", "photography"]
+    },
+    {
+      "id": "ec_017",
+      "name": "National History Day (NHD) Contest",
+      "category": "Humanities",
+      "major_alignment": ["Social Studies", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 15,
+        "average_usd": 75,
+        "high_end_usd": 500,
+        "cost_factors": ["Affiliate/State contest entry fees", "Exhibit board materials"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "National / Global Affiliates",
+      "url": "https://www.nhd.org/",
+      "tags": ["history", "documentary", "exhibit", "archival research"]
+    },
+    {
+      "id": "ec_018",
+      "name": "National High School Ethics Bowl (NHSEB)",
+      "category": "Humanities",
+      "major_alignment": ["Social Studies", "Behavioral Science"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 75,
+        "average_usd": 150,
+        "high_end_usd": 600,
+        "cost_factors": ["School team registration fee", "Regional contest entry"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "National (US)",
+      "url": "https://nhseb.unc.edu/",
+      "tags": ["ethics", "philosophy", "civil discourse", "case study"]
+    },
+    {
+      "id": "ec_019",
+      "name": "World Schools Debating Championship (WSDC) Circuit",
+      "category": "Social Studies",
+      "major_alignment": ["Social Studies", "Language"],
+      "cost_tier": "Medium",
+      "cost_breakdown": {
+        "baseline_usd": 50,
+        "average_usd": 350,
+        "high_end_usd": 1800,
+        "cost_factors": ["Tournament registration fees", "Travel to international invitationals"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "Global",
+      "url": "https://wsdcdebate.org/",
+      "tags": ["debate", "world schools", "parliamentary", "geopolitics"]
+    },
+    {
+      "id": "ec_020",
+      "name": "YoungArts Competition",
+      "category": "Arts",
+      "major_alignment": ["Performing Arts", "Visual Arts", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 35,
+        "average_usd": 35,
+        "high_end_usd": 150,
+        "cost_factors": ["Application submission fee per discipline ($35)"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "National (US)",
+      "url": "https://youngarts.org/",
+      "tags": ["dance", "classical music", "jazz", "theater", "design"]
+    },
+    {
+      "id": "ec_021",
+      "name": "John Locke Institute Global Essay Competition",
+      "category": "Humanities",
+      "major_alignment": ["Social Studies", "Behavioral Science", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 190,
+        "cost_factors": ["Free standard entry ($190 late entry fee)"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://www.johnlockeinstitute.com/essay-competition",
+      "tags": ["philosophy", "politics", "economics", "theology", "essay"]
+    },
+    {
+      "id": "ec_022",
+      "name": "Harvard International Review Academic Writing Contest",
+      "category": "Humanities",
+      "major_alignment": ["Social Studies", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 20,
+        "average_usd": 20,
+        "high_end_usd": 20,
+        "cost_factors": ["Submission fee ($20)"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://hir.harvard.edu/contest/",
+      "tags": ["international relations", "writing", "journalism", "policy"]
+    },
+    {
+      "id": "ec_023",
+      "name": "Genes in Space Contest",
+      "category": "STEM",
+      "major_alignment": ["Life Sciences", "Physical Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 50,
+        "cost_factors": ["Free submission"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "National (US)",
+      "url": "https://www.genesinspace.org/",
+      "tags": ["dna", "space station", "iss", "genetics", "pcr"]
+    },
+    {
+      "id": "ec_024",
+      "name": "Toshiba/NSTA ExploraVision",
+      "category": "STEM",
+      "major_alignment": ["Engineering", "Physical Sciences", "Education"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 20,
+        "high_end_usd": 100,
+        "cost_factors": ["Web page mockups & project paper supplies"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "National (US/Canada)",
+      "url": "https://www.exploravision.org/",
+      "tags": ["future technology", "invention", "nsta", "visionary paper"]
+    },
+    {
+      "id": "ec_025",
+      "name": "FIRST Tech Challenge (FTC)",
+      "category": "STEM",
+      "major_alignment": ["Engineering"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 200,
+        "average_usd": 600,
+        "high_end_usd": 2000,
+        "cost_factors": ["REV robotics kits, tournament registration, travel"]
+      },
+      "time_commitment_hrs_per_week": 12,
+      "geographic_dependency": "Global",
+      "url": "https://www.firstinspires.org/robotics/ftc",
+      "tags": ["ftc", "robotics", "java", "cad", "mechanics"]
+    },
+    {
+      "id": "ec_026",
+      "name": "VEX Robotics Competition (VRC)",
+      "category": "STEM",
+      "major_alignment": ["Engineering"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 150,
+        "average_usd": 500,
+        "high_end_usd": 1800,
+        "cost_factors": ["VEX V5 hardware, event registration fees"]
+      },
+      "time_commitment_hrs_per_week": 12,
+      "geographic_dependency": "Global",
+      "url": "https://www.vexrobotics.com/v5/competition",
+      "tags": ["vex", "robotics", "c++", "auton", "driver control"]
+    },
+    {
+      "id": "ec_027",
+      "name": "MAA AMC 10 / AMC 12 Math Competitions",
+      "category": "STEM",
+      "major_alignment": ["Math"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 5,
+        "average_usd": 15,
+        "high_end_usd": 50,
+        "cost_factors": ["School proctoring fee"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "Global",
+      "url": "https://www.maa.org/math-competitions",
+      "tags": ["amc10", "amc12", "aime", "combinatorics", "geometry"]
+    },
+    {
+      "id": "ec_028",
+      "name": "European Girls' Mathematical Olympiad (EGMO)",
+      "category": "STEM",
+      "major_alignment": ["Math"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 100,
+        "cost_factors": ["National qualification team travel (often subsidized)"]
+      },
+      "time_commitment_hrs_per_week": 14,
+      "geographic_dependency": "Global (Europe & Guest Nations)",
+      "url": "https://www.egmo.org/",
+      "tags": ["egmo", "proofs", "women in stem", "math olympiad"]
+    },
+    {
+      "id": "ec_029",
+      "name": "Physics Unlimited Premier Competition",
+      "category": "STEM",
+      "major_alignment": ["Physical Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 10,
+        "high_end_usd": 30,
+        "cost_factors": ["Online exam fee"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://www.physicsunlimited.org/",
+      "tags": ["physics", "university level", "calculus physics", "remote"]
+    },
+    {
+      "id": "ec_030",
+      "name": "ClimateScience Olympiad",
+      "category": "STEM & Policy",
+      "major_alignment": ["Physical Sciences", "Social Studies", "Life Sciences"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["100% free international competition"]
+      },
+      "time_commitment_hrs_per_week": 5,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://climatescience.org/olympiad",
+      "tags": ["climate", "sustainability", "policy solution", "global"]
+    },
+    {
+      "id": "ec_031",
+      "name": "Technovation Girls (Global Tech Entrepreneurship)",
+      "category": "STEM & Business",
+      "major_alignment": ["Engineering", "Behavioral Science"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 50,
+        "cost_factors": ["Free competition for female and non-binary youth"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://technovationchallenge.org/",
+      "tags": ["app development", "social entrepreneurship", "women in tech"]
+    },
+    {
+      "id": "ec_032",
+      "name": "CyberPatriot National Youth Cyber Defense Competition",
+      "category": "STEM",
+      "major_alignment": ["Engineering"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 40,
+        "high_end_usd": 200,
+        "cost_factors": ["Per-team fee ($205 total divided by 5 students)"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "National (US)",
+      "url": "https://www.uscyberpatriot.org/",
+      "tags": ["cybersecurity", "sysadmin", "networking", "linux", "windows security"]
+    },
+    {
+      "id": "ec_033",
+      "name": "Blue Ocean High School Entrepreneurship Competition",
+      "category": "Business",
+      "major_alignment": ["Behavioral Science", "Social Studies"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 25,
+        "cost_factors": ["Free submission of virtual pitch video"]
+      },
+      "time_commitment_hrs_per_week": 5,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://blueoceancompetition.org/",
+      "tags": ["business strategy", "pitching", "startup idea"]
+    },
+    {
+      "id": "ec_034",
+      "name": "Diamond Challenge for High School Entrepreneurs",
+      "category": "Business & Social Impact",
+      "major_alignment": ["Social Studies", "Education"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 20,
+        "high_end_usd": 300,
+        "cost_factors": ["Travel to summit if finalist (grants available)"]
+      },
+      "time_commitment_hrs_per_week": 7,
+      "geographic_dependency": "Global",
+      "url": "https://diamondchallenge.org/",
+      "tags": ["venture capital", "social venture", "entrepreneurship"]
+    },
+    {
+      "id": "ec_035",
+      "name": "Wharton Global Youth High School Investment Competition",
+      "category": "Business & Math",
+      "major_alignment": ["Math", "Social Studies"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["100% free investment simulation platform"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://globalyouth.wharton.upenn.edu/competitions/investment-competition/",
+      "tags": ["finance", "stocks", "portfolio strategy", "wharton"]
+    },
+    {
+      "id": "ec_036",
+      "name": "Princeton University Poetry Contest for High School Students",
+      "category": "Humanities",
+      "major_alignment": ["Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["Free submission for 11th graders worldwide"]
+      },
+      "time_commitment_hrs_per_week": 4,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://arts.princeton.edu/about/opportunities/high-school-contests/poetry-contest/",
+      "tags": ["poetry", "princeton", "creative writing", "literary"]
+    },
+    {
+      "id": "ec_037",
+      "name": "Junior Science and Humanities Symposium (JSHS)",
+      "category": "STEM",
+      "major_alignment": ["Physical Sciences", "Life Sciences", "Engineering"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 20,
+        "high_end_usd": 150,
+        "cost_factors": ["Poster board and research printing"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "National (US)",
+      "url": "https://jshs.org/",
+      "tags": ["jshs", "stem presentation", "defense research", "oral paper"]
+    },
+    {
+      "id": "ec_038",
+      "name": "American Rocketry Challenge (TARC)",
+      "category": "STEM",
+      "major_alignment": ["Engineering", "Physical Sciences"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 300,
+        "average_usd": 800,
+        "high_end_usd": 2500,
+        "cost_factors": ["Rocket motors, altimeters, airframe body materials"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "National (US)",
+      "url": "https://rocketcontest.org/",
+      "tags": ["rocketry", "aerospace", "physics", "altitude flight"]
+    },
+    {
+      "id": "ec_039",
+      "name": "National Brain Bee Competition",
+      "category": "STEM",
+      "major_alignment": ["Life Sciences", "Behavioral Science"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 10,
+        "high_end_usd": 100,
+        "cost_factors": ["Neuroscience textbook study materials"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "Global",
+      "url": "https://www.internationalbrainbee.org/",
+      "tags": ["neuroscience", "brain", "neuroanatomy", "histology"]
+    },
+    {
+      "id": "ec_040",
+      "name": "The Earth Prize",
+      "category": "STEM & Social Impact",
+      "major_alignment": ["Life Sciences", "Physical Sciences", "Education"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 50,
+        "cost_factors": ["Free submission for environmental ideas"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://www.theearthprize.org/",
+      "tags": ["sustainability", "eco innovation", "global contest"]
+    },
+    {
+      "id": "ec_041",
+      "name": "Queen's Commonwealth Essay Competition",
+      "category": "Humanities",
+      "major_alignment": ["Language", "Social Studies"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["Free entry for Commonwealth resident/student youth"]
+      },
+      "time_commitment_hrs_per_week": 5,
+      "geographic_dependency": "Global (Commonwealth Countries)",
+      "url": "https://www.royalcwsociety.org/essay-competition",
+      "tags": ["essay", "commonwealth", "creative writing", "culture"]
+    },
+    {
+      "id": "ec_042",
+      "name": "MIT PRIMES / PRIMES USA Research Program",
+      "category": "STEM",
+      "major_alignment": ["Math", "Engineering"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["100% tuition-free math & CS research program"]
+      },
+      "time_commitment_hrs_per_week": 15,
+      "geographic_dependency": "National (US Remote / Regional)",
+      "url": "https://math.mit.edu/research/highschool/primes/",
+      "tags": ["pure math", "mit", "computer science research", "mentorship"]
+    },
+    {
+      "id": "ec_043",
+      "name": "Davidson Fellows Scholarship Program",
+      "category": "Multi-Disciplinary",
+      "major_alignment": ["Physical Sciences", "Life Sciences", "Engineering", "Math", "Performing Arts", "Visual Arts", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 50,
+        "cost_factors": ["Portfolio compilation costs"]
+      },
+      "time_commitment_hrs_per_week": 12,
+      "geographic_dependency": "National (US)",
+      "url": "https://www.davidsongifted.org/gifted-programs/fellows-scholarship/",
+      "tags": ["portfolio award", "scholarship", "significant work"]
+    },
+    {
+      "id": "ec_044",
+      "name": "National History Academy",
+      "category": "Humanities",
+      "major_alignment": ["Social Studies", "Education"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 500,
+        "average_usd": 2500,
+        "high_end_usd": 4000,
+        "cost_factors": ["Summer program tuition (scholarships available)"]
+      },
+      "time_commitment_hrs_per_week": 20,
+      "geographic_dependency": "National (US)",
+      "url": "https://www.nationalhistoryacademy.org/",
+      "tags": ["american history", "civil rights", "historic sites", "constitution"]
+    },
+    {
+      "id": "ec_045",
+      "name": "International Geography Olympiad (iGeo)",
+      "category": "Humanities",
+      "major_alignment": ["Social Studies", "Behavioral Science"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 25,
+        "high_end_usd": 150,
+        "cost_factors": ["National qualification test fees"]
+      },
+      "time_commitment_hrs_per_week": 6,
+      "geographic_dependency": "Global",
+      "url": "www.igeo-olympiad.org/",
+      "tags": ["geography", "cartography", "gis", "urban planning"]
+    },
+    {
+      "id": "ec_046",
+      "name": "Telluride Association Summer Seminar (TASS)",
+      "category": "Humanities & Social Sciences",
+      "major_alignment": ["Social Studies", "Behavioral Science", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["100% free including room, board, and travel grants"]
+      },
+      "time_commitment_hrs_per_week": 25,
+      "geographic_dependency": "Global",
+      "url": "https://www.tellurideassociation.org/our-programs/high-school-students/",
+      "tags": ["critical thinking", "black studies", "gender studies", "seminar"]
+    },
+    {
+      "id": "ec_047",
+      "name": "Student World Impact Film Festival (SWIFF)",
+      "category": "Arts",
+      "major_alignment": ["Performing Arts", "Visual Arts"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 15,
+        "high_end_usd": 60,
+        "cost_factors": ["FilmFreeway submission fees"]
+      },
+      "time_commitment_hrs_per_week": 8,
+      "geographic_dependency": "Global / Remote",
+      "url": "https://www.filmfreeway.com",
+      "tags": ["indie film", "documentary", "short film", "cinematography"]
+    },
+    {
+      "id": "ec_048",
+      "name": "The American Foreign Service Association (AFSA) High School Essay Contest",
+      "category": "Social Sciences",
+      "major_alignment": ["Social Studies", "Language"],
+      "cost_tier": "Low",
+      "cost_breakdown": {
+        "baseline_usd": 0,
+        "average_usd": 0,
+        "high_end_usd": 0,
+        "cost_factors": ["Free submission"]
+      },
+      "time_commitment_hrs_per_week": 5,
+      "geographic_dependency": "National / Global US Citizens",
+      "url": "https://afsa.org/essay-contest",
+      "tags": ["diplomacy", "foreign policy", "embassy", "peacebuilding"]
+    },
+    {
+      "id": "ec_049",
+      "name": "International Tchaikovsky Competition for Young Musicians",
+      "category": "Arts",
+      "major_alignment": ["Performing Arts"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 100,
+        "average_usd": 800,
+        "high_end_usd": 3000,
+        "cost_factors": ["Audition tape production", "International travel for finalists"]
+      },
+      "time_commitment_hrs_per_week": 20,
+      "geographic_dependency": "Global",
+      "url": "http://tchaikovsky-competition.com/",
+      "tags": ["violin", "piano", "cello", "classical performance", "prodigy"]
+    },
+    {
+      "id": "ec_050",
+      "name": "World Robot Olympiad (WRO)",
+      "category": "STEM",
+      "major_alignment": ["Engineering"],
+      "cost_tier": "High",
+      "cost_breakdown": {
+        "baseline_usd": 200,
+        "average_usd": 700,
+        "high_end_usd": 2200,
+        "cost_factors": ["Lego Mindstorms/SPIKE Prime kit", "Mat/field set", "National travel"]
+      },
+      "time_commitment_hrs_per_week": 10,
+      "geographic_dependency": "Global",
+      "url": "https://wro-association.org/",
+      "tags": ["wro", "lego robotics", "autonomous", "coding logic"]
+    }
+  ]
+}
