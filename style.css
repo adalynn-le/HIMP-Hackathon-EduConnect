@@ -321,3 +321,17 @@ textarea {
 .tag-request { background-color: #e74c3c; }
 .tag-offer { background-color: #2ecc71; }
 .tag-shared { background-color: #3498db; }
+#post-type{
+    width: 100%;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #64748b;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  transition: none !important;
+   margin: 5px;
+}

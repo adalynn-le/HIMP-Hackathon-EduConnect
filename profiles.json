@@ -1,0 +1,365 @@
+{
+  "profiles": [
+    {
+      "id": 1,
+      "student_profile": "Accepted UPenn STEM Major",
+      "tier": "Ivy / T10",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Midwest",
+        "region_median_income": 95000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 2800,
+        "ec_breakdown": [
+          { "name": "Robotics Team Parts & Travel", "cost": 1800 },
+          { "name": "Math Team Regional & State Fees", "cost": 400 },
+          { "name": "STEM Summer Camp Program", "cost": 600 }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "student_profile": "Accepted CMU Statistics & Machine Learning",
+      "tier": "T10 / T20",
+      "geographic_location": {
+        "country": "United States",
+        "region": "West",
+        "region_median_income": 140000
+      },
+      "costs": {
+        "basic_school_supplies": 450,
+        "extrapolated_ec_cost": 3200,
+        "ec_breakdown": [
+          { "name": "Marketing Research Summer Program", "cost": 2500 },
+          { "name": "Photography Gear & Competition Entry Fees", "cost": 700 }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "student_profile": "Accepted Harvard Physics Major",
+      "tier": "Ivy / T10",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Northeast",
+        "region_median_income": 125000
+      },
+      "costs": {
+        "basic_school_supplies": 400,
+        "extrapolated_ec_cost": 1500,
+        "ec_breakdown": [
+          { "name": "ISEF and Science Fair Travel & Registration Fees", "cost": 1000 },
+          { "name": "Quiz Bowl & Club Tournament Costs", "cost": 500 }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "student_profile": "Accepted UT Austin McCombs / Notre Dame / Miami Business Major",
+      "tier": "T20 Public / T20 Private",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southwest",
+        "region_median_income": 75000
+      },
+      "costs": {
+        "basic_school_supplies": 300,
+        "extrapolated_ec_cost": 450,
+        "ec_breakdown": [
+          { "name": "Flag Football & Club Sports Equipment/Fees", "cost": 300 },
+          { "name": "Financial Literacy Teaching Materials", "cost": 150 }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "student_profile": "Accepted Tulane / IU Kelley / Cornell Transfer Option Economics Major",
+      "tier": "T20 Public / T20 Private",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southeast",
+        "region_median_income": 150000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 1800,
+        "ec_breakdown": [
+          { "name": "Private High School AP/Honors Fees & Private School Tuition Diff", "cost": 1200 },
+          { "name": "Lacrosse & Swim Gear/Club Fees", "cost": 600 }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "student_profile": "Accepted Columbia Linguistics and Economics Major",
+      "tier": "Ivy / T10",
+      "geographic_location": {
+        "country": "United States",
+        "region": "West",
+        "region_median_income": 65000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 200,
+        "ec_breakdown": [
+          { "name": "Conlang Materials & Local Linguistics Organization Costs", "cost": 200 }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "student_profile": "Accepted University of Michigan Mechanical Engineering Major",
+      "tier": "T20 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Midwest",
+        "region_median_income": 95000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 850,
+        "ec_breakdown": [
+          { "name": "Eagle Scout Project and Advancement Fees", "cost": 500 },
+          { "name": "Cross Country & Track Gear and Registration Fees", "cost": 350 }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "student_profile": "Committed UCLA Mathematics of Computation Major",
+      "tier": "T20 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "West",
+        "region_median_income": 140000
+      },
+      "costs": {
+        "basic_school_supplies": 400,
+        "extrapolated_ec_cost": 3200,
+        "ec_breakdown": [
+          { "name": "Biotech Research Lab & Publication Fees", "cost": 2500 },
+          { "name": "Track & Field Equipment and HOSA Club Expenses", "cost": 700 }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "student_profile": "Accepted Cornell Engineering / NROTC Scholarship Biomedical Engineering Major",
+      "tier": "Ivy / T10",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Northeast",
+        "region_median_income": 200000
+      },
+      "costs": {
+        "basic_school_supplies": 400,
+        "extrapolated_ec_cost": 1600,
+        "ec_breakdown": [
+          { "name": "Saxophone Private Lessons, Master Classes & Camp Fees", "cost": 1200 },
+          { "name": "HOSA & Science National Honor Society Event Costs", "cost": 400 }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "student_profile": "Committed Howard University Finance Major",
+      "tier": "T100 Private",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southwest",
+        "region_median_income": 65000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 300,
+        "ec_breakdown": [
+          { "name": "Finance Club & Chess Club Materials", "cost": 200 },
+          { "name": "Key Club & Mu Alpha Theta Fees", "cost": 100 }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "student_profile": "Committed University of Florida Mechanical/Biomedical Engineering Major",
+      "tier": "T30 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southeast",
+        "region_median_income": 65000
+      },
+      "costs": {
+        "basic_school_supplies": 300,
+        "extrapolated_ec_cost": 500,
+        "ec_breakdown": [
+          { "name": "Environmental Club & Organization Setup Costs", "cost": 300 },
+          { "name": "Roblox Development & Science Fair Project Materials", "cost": 200 }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "student_profile": "Committed Northwestern University Mechanical Engineering Major",
+      "tier": "T20 Private",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Midwest",
+        "region_median_income": 75000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 1200,
+        "ec_breakdown": [
+          { "name": "Taekwondo Gear and Certification Fees", "cost": 1000 },
+          { "name": "Environmental Club & NHS Expenses", "cost": 200 }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "student_profile": "Committed University of Georgia Neuroscience Major",
+      "tier": "T50 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southeast",
+        "region_median_income": 65000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 2500,
+        "ec_breakdown": [
+          { "name": "Independent Research Project & ISEF Entry Costs", "cost": 1800 },
+          { "name": "Summer Research Program & International Conference Travel", "cost": 700 }
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "student_profile": "Committed University of California, San Diego Economics Major",
+      "tier": "T30 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "West",
+        "region_median_income": 140000
+      },
+      "costs": {
+        "basic_school_supplies": 400,
+        "extrapolated_ec_cost": 1500,
+        "ec_breakdown": [
+          { "name": "Education Company Setup & Finance YouTube Equipment", "cost": 1000 },
+          { "name": "Chess Tournament Fees & Music Lessons", "cost": 500 }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "student_profile": "Committed University of Washington Computer Science Major",
+      "tier": "T50 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "West",
+        "region_median_income": 95000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 800,
+        "ec_breakdown": [
+          { "name": "Startup Registration & Hackathon Travel", "cost": 500 },
+          { "name": "Sports Equipment & Club Fees", "cost": 300 }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "student_profile": "Committed Pomona College Public Policy & International Affairs Major",
+      "tier": "T30 Private",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southwest",
+        "region_median_income": 85000
+      },
+      "costs": {
+        "basic_school_supplies": 300,
+        "extrapolated_ec_cost": 400,
+        "ec_breakdown": [
+          { "name": "Mock Trial & Science Olympiad Fees", "cost": 250 },
+          { "name": "Key Club & Philanthropy Materials", "cost": 150 }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "student_profile": "Committed University of California, Los Angeles Biomedical Engineering Major",
+      "tier": "T20 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Northeast",
+        "region_median_income": 85000
+      },
+      "costs": {
+        "basic_school_supplies": 400,
+        "extrapolated_ec_cost": 1200,
+        "ec_breakdown": [
+          { "name": "Science Olympiad & Model UN Registration", "cost": 400 },
+          { "name": "Instrument Lessons & Ballet Tuition", "cost": 800 }
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "student_profile": "Committed University of California, Los Angeles Economics & Mathematics Major",
+      "tier": "T20 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Northeast",
+        "region_median_income": 115000
+      },
+      "costs": {
+        "basic_school_supplies": 450,
+        "extrapolated_ec_cost": 3000,
+        "ec_breakdown": [
+          { "name": "Football Gear & Camp Materials", "cost": 1000 },
+          { "name": "Economics Club Outreach & Speaker Logistics", "cost": 1200 },
+          { "name": "Eagle Scout Project & French Club Trip", "cost": 800 }
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "student_profile": "Committed University of Georgia Economics Major",
+      "tier": "T50 Public",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Southeast",
+        "region_median_income": 95000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 800,
+        "ec_breakdown": [
+          { "name": "Community Education Volunteer Expenses", "cost": 300 },
+          { "name": "General School Activities & Sports Fees", "cost": 500 }
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "student_profile": "Committed Brown University History & Classics Major",
+      "tier": "Ivy / T10",
+      "geographic_location": {
+        "country": "United States",
+        "region": "Midwest",
+        "region_median_income": 70000
+      },
+      "costs": {
+        "basic_school_supplies": 350,
+        "extrapolated_ec_cost": 500,
+        "ec_breakdown": [
+          { "name": "Mock Trial & Junior Classical League Fees", "cost": 400 },
+          { "name": "Latin Exam Registrations & Supplies", "cost": 100 }
+        ]
+      }
+    }
+  ]
+}
