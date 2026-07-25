@@ -14,7 +14,7 @@
       } 
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 </head>
@@ -787,5 +787,5 @@
         <a href="https://forms.gle/5BoNrTy1qsRZsz5FA">Submit Information to Our Dataset (Anonymous)</a>
         <div id="overlay" style="display: none"></div>
     </main>
-<script src="/static/script.js" type="module"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
