@@ -1,0 +1,316 @@
+{
+  "need_blind_schools": [
+    {
+      "institution": "Amherst College",
+      "state": "Massachusetts",
+      "acceptance_rate": "7%",
+      "financial_aid_website": "https://www.amherst.edu/offices/financialaid"
+    },
+    {
+      "institution": "Babson College",
+      "state": "Massachusetts",
+      "acceptance_rate": "20%",
+      "financial_aid_website": "https://www.babson.edu/undergraduate/tuition-and-financial-aid/"
+    },
+    {
+      "institution": "Barnard College",
+      "state": "New York",
+      "acceptance_rate": "9%",
+      "financial_aid_website": "https://barnard.edu/admissions/financial-aid"
+    },
+    {
+      "institution": "Boston College",
+      "state": "Massachusetts",
+      "acceptance_rate": "15%",
+      "financial_aid_website": "https://www.bc.edu/bc-web/admission/financial-aid.html"
+    },
+    {
+      "institution": "Boston University",
+      "state": "Massachusetts",
+      "acceptance_rate": "11%",
+      "financial_aid_website": "https://www.bu.edu/finaid/"
+    },
+    {
+      "institution": "Bowdoin College",
+      "state": "Maine",
+      "acceptance_rate": "9%",
+      "financial_aid_website": "https://www.bowdoin.edu/student-aid/index.html"
+    },
+    {
+      "institution": "Brown University",
+      "state": "Rhode Island",
+      "acceptance_rate": "5%",
+      "financial_aid_website": "https://finaid.brown.edu/"
+    },
+    {
+      "institution": "California Institute of Technology (Caltech)",
+      "state": "California",
+      "acceptance_rate": "3%",
+      "financial_aid_website": "https://www.finaid.caltech.edu/"
+    },
+    {
+      "institution": "Carnegie Mellon University",
+      "state": "Pennsylvania",
+      "acceptance_rate": "11%",
+      "financial_aid_website": "https://www.cmu.edu/sfs/financial-aid/index.html"
+    },
+    {
+      "institution": "Claremont McKenna College",
+      "state": "California",
+      "acceptance_rate": "10%",
+      "financial_aid_website": "https://www.cmc.edu/admission/financial-aid"
+    },
+    {
+      "institution": "Colby College",
+      "state": "Maine",
+      "acceptance_rate": "8%",
+      "financial_aid_website": "https://www.colby.edu/admissions/tuition-financial-aid/"
+    },
+    {
+      "institution": "Columbia University",
+      "state": "New York",
+      "acceptance_rate": "4%",
+      "financial_aid_website": "https://cc-seas.financialaid.columbia.edu/"
+    },
+    {
+      "institution": "Cornell University",
+      "state": "New York",
+      "acceptance_rate": "7%",
+      "financial_aid_website": "https://finaid.cornell.edu/"
+    },
+    {
+      "institution": "Dartmouth College",
+      "state": "New Hampshire",
+      "acceptance_rate": "6%",
+      "financial_aid_website": "https://financialaid.dartmouth.edu/"
+    },
+    {
+      "institution": "Davidson College",
+      "state": "North Carolina",
+      "acceptance_rate": "17%",
+      "financial_aid_website": "https://www.davidson.edu/admission-and-financial-aid/financial-aid"
+    },
+    {
+      "institution": "Duke University",
+      "state": "North Carolina",
+      "acceptance_rate": "6%",
+      "financial_aid_website": "https://financialaid.duke.edu/"
+    },
+    {
+      "institution": "Emory University",
+      "state": "Georgia",
+      "acceptance_rate": "11%",
+      "financial_aid_website": "https://studentfinancialaid.emory.edu/"
+    },
+    {
+      "institution": "Georgetown University",
+      "state": "District of Columbia",
+      "acceptance_rate": "12%",
+      "financial_aid_website": "https://finaid.georgetown.edu/"
+    },
+    {
+      "institution": "Grinnell College",
+      "state": "Iowa",
+      "acceptance_rate": "11%",
+      "financial_aid_website": "https://www.grinnell.edu/admission/financial-aid"
+    },
+    {
+      "institution": "Hamilton College",
+      "state": "New York",
+      "acceptance_rate": "12%",
+      "financial_aid_website": "https://www.hamilton.edu/admission/finaid"
+    },
+    {
+      "institution": "Harvard University",
+      "state": "Massachusetts",
+      "acceptance_rate": "3%",
+      "financial_aid_website": "https://college.harvard.edu/financial-aid"
+    },
+    {
+      "institution": "Harvey Mudd College",
+      "state": "California",
+      "acceptance_rate": "13%",
+      "financial_aid_website": "https://www.hmc.edu/financial-aid/"
+    },
+    {
+      "institution": "Haverford College",
+      "state": "Pennsylvania",
+      "acceptance_rate": "13%",
+      "financial_aid_website": "https://www.haverford.edu/admission-financial-aid"
+    },
+    {
+      "institution": "Johns Hopkins University",
+      "state": "Maryland",
+      "acceptance_rate": "6%",
+      "financial_aid_website": "https://finaid.jhu.edu/"
+    },
+    {
+      "institution": "Kenyon College",
+      "state": "Ohio",
+      "acceptance_rate": "35%",
+      "financial_aid_website": "https://www.kenyon.edu/admissions-aid/financial-aid/"
+    },
+    {
+      "institution": "Lehigh University",
+      "state": "Pennsylvania",
+      "acceptance_rate": "37%",
+      "financial_aid_website": "https://financialaid.lehigh.edu/"
+    },
+    {
+      "institution": "Macalester College",
+      "state": "Minnesota",
+      "acceptance_rate": "32%",
+      "financial_aid_website": "https://www.macalester.edu/financialaid/"
+    },
+    {
+      "institution": "Massachusetts Institute of Technology (MIT)",
+      "state": "Massachusetts",
+      "acceptance_rate": "4%",
+      "financial_aid_website": "https://sfs.mit.edu/"
+    },
+    {
+      "institution": "Middlebury College",
+      "state": "Vermont",
+      "acceptance_rate": "13%",
+      "financial_aid_website": "https://www.middlebury.edu/office/financial-aid"
+    },
+    {
+      "institution": "New York University (NYU)",
+      "state": "New York",
+      "acceptance_rate": "8%",
+      "financial_aid_website": "https://www.nyu.edu/admissions/financial-aid.html"
+    },
+    {
+      "institution": "Northeastern University",
+      "state": "Massachusetts",
+      "acceptance_rate": "6%",
+      "financial_aid_website": "https://studentfinance.northeastern.edu/"
+    },
+    {
+      "institution": "Northwestern University",
+      "state": "Illinois",
+      "acceptance_rate": "7%",
+      "financial_aid_website": "https://undergradaid.northwestern.edu/"
+    },
+    {
+      "institution": "Oberlin College",
+      "state": "Ohio",
+      "acceptance_rate": "34%",
+      "financial_aid_website": "https://www.oberlin.edu/admissions-and-aid/financial-aid"
+    },
+    {
+      "institution": "Pomona College",
+      "state": "California",
+      "acceptance_rate": "7%",
+      "financial_aid_website": "https://www.pomona.edu/administration/financial-aid"
+    },
+    {
+      "institution": "Princeton University",
+      "state": "New Jersey",
+      "acceptance_rate": "6%",
+      "financial_aid_website": "https://admission.princeton.edu/cost-financial-aid"
+    },
+    {
+      "institution": "Rice University",
+      "state": "Texas",
+      "acceptance_rate": "8%",
+      "financial_aid_website": "https://financialaid.rice.edu/"
+    },
+    {
+      "institution": "Smith College",
+      "state": "Massachusetts",
+      "acceptance_rate": "19%",
+      "financial_aid_website": "https://www.smith.edu/admission-aid/financial-aid"
+    },
+    {
+      "institution": "Stanford University",
+      "state": "California",
+      "acceptance_rate": "4%",
+      "financial_aid_website": "https://financialaid.stanford.edu/"
+    },
+    {
+      "institution": "Swarthmore College",
+      "state": "Pennsylvania",
+      "acceptance_rate": "7%",
+      "financial_aid_website": "https://www.swarthmore.edu/financial-aid"
+    },
+    {
+      "institution": "Tufts University",
+      "state": "Massachusetts",
+      "acceptance_rate": "10%",
+      "financial_aid_website": "https://admissions.tufts.edu/tuition-aid/"
+    },
+    {
+      "institution": "University of Chicago",
+      "state": "Illinois",
+      "acceptance_rate": "5%",
+      "financial_aid_website": "https://financialaid.uchicago.edu/"
+    },
+    {
+      "institution": "University of Notre Dame",
+      "state": "Indiana",
+      "acceptance_rate": "12%",
+      "financial_aid_website": "https://financialaid.nd.edu/"
+    },
+    {
+      "institution": "University of Pennsylvania",
+      "state": "Pennsylvania",
+      "acceptance_rate": "6%",
+      "financial_aid_website": "https://srfs.upenn.edu/financial-aid"
+    },
+    {
+      "institution": "University of Richmond",
+      "state": "Virginia",
+      "acceptance_rate": "23%",
+      "financial_aid_website": "https://financialaid.richmond.edu/"
+    },
+    {
+      "institution": "University of Rochester",
+      "state": "New York",
+      "acceptance_rate": "39%",
+      "financial_aid_website": "https://enrollment.rochester.edu/financial-aid/"
+    },
+    {
+      "institution": "University of Southern California (USC)",
+      "state": "California",
+      "acceptance_rate": "10%",
+      "financial_aid_website": "https://financialaid.usc.edu/"
+    },
+    {
+      "institution": "Vanderbilt University",
+      "state": "Tennessee",
+      "acceptance_rate": "5%",
+      "financial_aid_website": "https://www.vanderbilt.edu/financialaid/"
+    },
+    {
+      "institution": "Vassar College",
+      "state": "New York",
+      "acceptance_rate": "19%",
+      "financial_aid_website": "https://www.vassar.edu/admissions/financial-aid"
+    },
+    {
+      "institution": "Wellesley College",
+      "state": "Massachusetts",
+      "acceptance_rate": "14%",
+      "financial_aid_website": "https://www.wellesley.edu/admission/affordability"
+    },
+    {
+      "institution": "Wesleyan University",
+      "state": "Connecticut",
+      "acceptance_rate": "15%",
+      "financial_aid_website": "https://www.wesleyan.edu/admission/cost-financial-aid.html"
+    },
+    {
+      "institution": "Williams College",
+      "state": "Massachusetts",
+      "acceptance_rate": "8%",
+      "financial_aid_website": "https://financial-aid.williams.edu/"
+    },
+    {
+      "institution": "Yale University",
+      "state": "Connecticut",
+      "acceptance_rate": "5%",
+      "financial_aid_website": "https://finaid.yale.edu/"
+    }
+  ]
+}

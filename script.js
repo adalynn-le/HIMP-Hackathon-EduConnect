@@ -493,7 +493,9 @@ function renderCostMap(profilesData) {
              `Avg Cost: $${this.getData("avgCost").toLocaleString()}\n` +
              `Median Income: $${this.getData("medianIncome").toLocaleString()}`;
     });
-
+    series.tooltip().format(function() {
+      return `Region: ${this.getData("regionName")}\nAverage $${this.value.toLocaleString}`
+    })
     series.hovered().fill("#38bdf8");
     series.selected().fill("#0284c7");
 
@@ -629,3 +631,94 @@ function renderBasicToAdvancedRatioMap(profilesData) {
     map.draw();
   });
 }
+async function renderAidSchools(targetState = "") {
+  const resultsContainer = document.getElementById("aidSchoolResults");
+  if (!resultsContainer) return;
+
+  resultsContainer.innerHTML = "<p style='font-size: 14px;'>Loading financial aid database...</p>";
+
+  try {
+    const response = await fetch("finnancialaid.json");
+    const data = await response.json();
+    let schools = data.need_blind_schools;
+
+    const stateNeighbors = {
+      "Massachusetts": ["Connecticut", "Rhode Island", "New Hampshire", "Maine", "New York", "Vermont", "Pennsylvania"],
+      "New York": ["Connecticut", "New Jersey", "Pennsylvania", "Massachusetts", "Vermont", "Rhode Island"],
+      "California": [],
+      "Pennsylvania": ["New York", "New Jersey", "Delaware", "Maryland", "Ohio", "West Virginia"],
+      "New Jersey": ["New York", "Pennsylvania", "Delaware"],
+      "Connecticut": ["Massachusetts", "New York", "Rhode Island"],
+      "Rhode Island": ["Massachusetts", "Connecticut"],
+      "New Hampshire": ["Massachusetts", "Maine", "Vermont"],
+      "Maine": ["New Hampshire"],
+      "North Carolina": ["Virginia", "Tennessee", "South Carolina", "Georgia"],
+      "Tennessee": ["North Carolina", "Virginia", "Kentucky", "Georgia", "Alabama", "Mississippi", "Arkansas", "Missouri"],
+      "Indiana": ["Illinois", "Michigan", "Ohio", "Kentucky"]
+    };
+
+    const neighbors = targetState ? (stateNeighbors[targetState] || []) : [];
+
+    const scoredSchools = schools.map(school => {
+      let relevanceScore = 0;
+      let matchType = "All Schools";
+
+      if (!targetState) {
+      } else if (school.state.toLowerCase() === targetState.toLowerCase()) {
+        matchType = "Direct State Match";
+      } else if (neighbors.includes(school.state)) {
+        matchType = "Neighboring Region Match";
+      } else {
+        matchType = "Other Region";
+      }
+
+      return { ...school, relevanceScore, matchType };
+    });
+
+    scoredSchools.sort((a, b) => b.relevanceScore - a.relevanceScore);
+
+    let headingText = targetState 
+      ? `Showing All Schools (Ranked by Proximity to ${targetState}):` 
+      : `All Need-Blind Financial Aid Schools (${scoredSchools.length} Total):`;
+
+    let html = `<h4 style="color: var(--primary-color, #2563eb); margin-bottom: 10px; font-size: 15px;">${headingText}</h4>`;
+    html += `<div style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto;">`;
+
+    scoredSchools.forEach(school => {
+      if (school.matchType === "Direct State Match") badgeColor = "#10b981";
+      else if (school.matchType === "Neighboring Region Match") badgeColor = "#6366f1";
+
+      html += `
+        <div style="border: 1px solid var(--border-color, #e2e8f0); padding: 12px; border-radius: 6px; background: #f8fafc;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: bold; font-size: 15px; color: var(--text-main, #1e293b);">${school.institution}</span>
+            <span style="font-size: 11px; background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 4px;">${school.matchType} (${school.state})</span>
+          </div>
+          <div style="font-size: 13px; color: var(--text-muted, #64748b); margin-top: 6px;">
+            <strong>Acceptance Rate:</strong> ${school.acceptance_rate} <br>
+            <strong>Financial Aid Portal:</strong> 
+            <a href="${school.financial_aid_website}" target="_blank" style="color: #2563eb; text-decoration: underline;">
+              Visit Website
+            </a>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    resultsContainer.innerHTML = html;
+
+  } catch (error) {
+    console.error("Error loading finnancialaid.json:", error);
+    resultsContainer.innerHTML = `<p style='color: red; font-size: 14px;'>Error loading financial aid database.</p>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderAidSchools(""); 
+});
+
+document.getElementById("searchAidSchoolsBtn")?.addEventListener("click", () => {
+  const selectedState = document.getElementById("search-state-input").value;
+  renderAidSchools(selectedState);
+});
