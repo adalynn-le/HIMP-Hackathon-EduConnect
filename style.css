@@ -278,7 +278,6 @@ input[type="url"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
   border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
 input::placeholder,
@@ -307,11 +306,10 @@ textarea {
 .card {
   width: 300px;
   min-height: 180px;
-  border: 2px solid #333;
+  border: 2px solid var(--border-color);
   border-radius: 10px;
   padding: 15px;
-  background-color: #fcf8e3; /* Bulletin paper color */
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  background-color: #f8fcff; /* Bulletin paper color */
   text-align: left;
 }
 

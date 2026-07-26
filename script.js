@@ -641,7 +641,6 @@ async function renderAidSchools(targetState = "") {
     const response = await fetch("finnancialaid.json");
     const data = await response.json();
     let schools = data.need_blind_schools;
-
     const stateNeighbors = {
       "Massachusetts": ["Connecticut", "Rhode Island", "New Hampshire", "Maine", "New York", "Vermont", "Pennsylvania"],
       "New York": ["Connecticut", "New Jersey", "Pennsylvania", "Massachusetts", "Vermont", "Rhode Island"],
@@ -658,25 +657,26 @@ async function renderAidSchools(targetState = "") {
     };
 
     const neighbors = targetState ? (stateNeighbors[targetState] || []) : [];
-
     const scoredSchools = schools.map(school => {
       let relevanceScore = 0;
       let matchType = "All Schools";
 
       if (!targetState) {
+        relevanceScore = 1; 
       } else if (school.state.toLowerCase() === targetState.toLowerCase()) {
+        relevanceScore = 3; 
         matchType = "Direct State Match";
       } else if (neighbors.includes(school.state)) {
+        relevanceScore = 2;
         matchType = "Neighboring Region Match";
       } else {
+        relevanceScore = 1;
         matchType = "Other Region";
       }
 
       return { ...school, relevanceScore, matchType };
     });
-
     scoredSchools.sort((a, b) => b.relevanceScore - a.relevanceScore);
-
     let headingText = targetState 
       ? `Showing All Schools (Ranked by Proximity to ${targetState}):` 
       : `All Need-Blind Financial Aid Schools (${scoredSchools.length} Total):`;
@@ -685,10 +685,10 @@ async function renderAidSchools(targetState = "") {
     html += `<div style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto;">`;
 
     scoredSchools.forEach(school => {
-      let badgeColor = '#2563eb'
-      
+      let badgeColor = "#64748b"
       if (school.matchType === "Direct State Match") badgeColor = "#10b981";
       else if (school.matchType === "Neighboring Region Match") badgeColor = "#6366f1";
+
       html += `
         <div style="border: 1px solid var(--border-color, #e2e8f0); padding: 12px; border-radius: 6px; background: #f8fafc;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
