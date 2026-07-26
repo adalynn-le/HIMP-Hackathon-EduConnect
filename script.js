@@ -685,9 +685,10 @@ async function renderAidSchools(targetState = "") {
     html += `<div style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto;">`;
 
     scoredSchools.forEach(school => {
+      let badgeColor = '#2563eb'
+      
       if (school.matchType === "Direct State Match") badgeColor = "#10b981";
       else if (school.matchType === "Neighboring Region Match") badgeColor = "#6366f1";
-
       html += `
         <div style="border: 1px solid var(--border-color, #e2e8f0); padding: 12px; border-radius: 6px; background: #f8fafc;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
